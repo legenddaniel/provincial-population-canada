@@ -1,0 +1,94 @@
+{
+    "component": [
+        {
+            "name": "CPU",
+            "Manufacturer": [
+                {
+                    "name": "Intel",
+                    "model": [
+                        {
+                            "series": "i7",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "i5",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "i3",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        }
+                    ]
+                },
+                {
+                    "name": "AMD",
+                    "model": [
+                        {
+                            "series": "r7",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "r5",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "r3",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Graphic Card",
+            "Manufacturer": [
+                {
+                    "name": "NVidia",
+                    "model": [
+                        {
+                            "series": "2080",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "2070",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "2060",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        }
+                    ]
+                },
+                {
+                    "name": "AMD",
+                    "model": [
+                        {
+                            "series": "5700XT",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "5600XT",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        },
+                        {
+                            "series": "5500XT",
+                            "price": 199.99,
+                            "link": "www.amazon.ca"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
