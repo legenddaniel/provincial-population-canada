@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
+<!-- 位置第一，先查看全国，后按省份，可做成3d效果
+时间第二，平面效果，分年月
+选定后出现点击查看按钮，按钮无边框，点击后按钮文本为人口，用户操作后（滚轮并停止）按钮文本重置 -->
+
 <body class="bg-container">
     <section class="section">
         <h1 class="w-80 txt-xl txt-center">Provincial Population Data of Canada</h1>
@@ -26,18 +30,14 @@
                 title="Population estimates, quarterly">Statistics Canada</a></p>
     </section>
     <section class="section">
-        <h2>Select date and province</h2>
-        <div>
-            <div class="pers">
-                <section class="trans1"></section>
-            </div>
-            <div>
-                <section class="trans2"></section>
-            </div>
-            <div class="pers">
-                <section class="trans3"></section>
-            </div>
-
+        <h2>Check how many people were living in Canada in:</h2>
+    </section>
+    <section class="section">
+        <h2>Or on a basis of the province:</h2>
+        <div class="pers">
+            <div class="trans trans-up"></div>
+            <div class="trans"></div>
+            <div class="trans trans-bot"></div>
         </div>
     </section>
 </body>
