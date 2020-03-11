@@ -31,6 +31,14 @@
     justify-content: center;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
 .align-center {
     align-items: center;
 }
@@ -97,21 +105,58 @@
 
 /* Other ↓ */
 .pers {
+    position: relative;
+    transform-style: preserve-3d;
     perspective: 20rem;
 }
 
 .trans {
-    width: 12rem;
-    height: 2rem;
-    background-image: url("2019_10_16_08_28_IMG_0294.png");
-    background-position: center;
-}
-.trans-up {
-    transform: translateZ(-1rem) rotateX(45deg);
+    position: absolute;
+    top: 0;
+    left: -6rem;
+    width: 15rem;
+    height: 1rem;
+    text-align: center;
 }
 
-.trans-bot {
-    transform: translateZ(-1rem) rotateX(-45deg);
+.trans:nth-of-type(1) {
+    transform: translateZ(2rem);
+}
+
+.trans:nth-of-type(2) {
+    transform: rotateX(-36deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(3) {
+    transform: rotateX(-72deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(4) {
+    transform: rotateX(-108deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(5) {
+    transform: rotateX(-144deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(6) {
+    transform: rotateX(-180deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(7) {
+    transform: rotateX(-216deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(8) {
+    transform: rotateX(-252deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(9) {
+    transform: rotateX(-288deg) translateZ(2rem);
+}
+
+.trans:nth-of-type(10) {
+    transform: rotateX(-324deg) translateZ(2rem);
 }
 /* Other ↑ */
 /* Module ↑ */
