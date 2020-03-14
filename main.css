@@ -7,15 +7,6 @@
     height: 100vh;
 }
 
-.btn-get {
-    width: max-content;
-    height: 4rem;
-    border: none;
-    background-color: coral;
-    font-size: 2rem;
-    outline: none;
-}
-
 .cover {
     z-index: -1;
     top: -3rem;
@@ -23,7 +14,72 @@
     width: 16rem;
     height: 10rem;
     background-color: transparent;
-    border: 3.5rem solid #673AB7;
+    border: 3.5rem solid #673ab7;
+}
+
+.pers {
+    transform-style: preserve-3d;
+    perspective: 20rem;
+    z-index: -2;
+}
+
+.trans {
+    top: -0.3rem;
+    left: -6rem;
+    width: 15rem;
+    height: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    backface-visibility: hidden;
+}
+
+.trans:nth-of-type(1) {
+    transform: translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(2) {
+    transform: rotateX(-36deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(3) {
+    transform: rotateX(-72deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(4) {
+    transform: rotateX(-108deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(5) {
+    transform: rotateX(-144deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(6) {
+    transform: rotateX(-180deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(7) {
+    transform: rotateX(-216deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(8) {
+    transform: rotateX(-252deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(9) {
+    transform: rotateX(-288deg) translateZ(4rem) scale(0.5);
+}
+
+.trans:nth-of-type(10) {
+    transform: rotateX(-324deg) translateZ(4rem) scale(0.5);
+}
+
+.btn-get {
+    width: max-content;
+    height: 4rem;
+    border: none;
+    background-color: coral;
+    font-size: 2rem;
+    outline: none;
 }
 
 /* Component ↑ */
@@ -134,60 +190,6 @@
 /* Text ↑ */
 
 /* Other ↓ */
-.pers {
-    transform-style: preserve-3d;
-    perspective: 20rem;
-    z-index: -2;
-}
 
-.trans {
-    top: -.3rem;
-    left: -6rem;
-    width: 15rem;
-    height: 1rem;
-    text-align: center;
-    font-size: 3rem;
-    backface-visibility: hidden;
-}
-
-.trans:nth-of-type(1) {
-    transform: translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(2) {
-    transform: rotateX(-36deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(3) {
-    transform: rotateX(-72deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(4) {
-    transform: rotateX(-108deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(5) {
-    transform: rotateX(-144deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(6) {
-    transform: rotateX(-180deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(7) {
-    transform: rotateX(-216deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(8) {
-    transform: rotateX(-252deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(9) {
-    transform: rotateX(-288deg) translateZ(4rem) scale(.5);
-}
-
-.trans:nth-of-type(10) {
-    transform: rotateX(-324deg) translateZ(4rem) scale(.5);
-}
 /* Other ↑ */
 /* Module ↑ */
