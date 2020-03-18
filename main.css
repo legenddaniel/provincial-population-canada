@@ -45,7 +45,7 @@
     backface-visibility: hidden;
 }
 
-.trans:nth-of-type(1) {
+/* .trans:nth-of-type(1) {
     transform: translateZ(4rem) scale(0.5);
 }
 
@@ -83,7 +83,7 @@
 
 .trans:nth-of-type(10) {
     transform: rotateX(-324deg) translateZ(4rem) scale(0.5);
-}
+} */
 
 .btn-get {
     width: max-content;
