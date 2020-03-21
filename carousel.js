@@ -1,10 +1,6 @@
-const nthFromOrigin = 0;
 export const scrollProvince = function (e) {
-    // console.log(transform, rotateX, newRotateX, this);
-    const carousel = document.getElementById('province');
-    const carouselTransform = window.getComputedStyle(carousel, null).transform;
-    // console.log(transform);
-    const rotateX = +carouselTransform.match(/-*\d+/);
+    const deg = 0;
+    const carousel = document.querySelector('.carousel');
     const newRotateX = this.deltaY < 0 ? rotateX - 36 : rotateX + 36;
     
     e.preventDefault();
