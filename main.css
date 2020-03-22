@@ -23,7 +23,8 @@
     /* height: 15rem; */
     perspective: 20rem;
     /* perspective-origin: 75%; */
-    /* overflow: hidden; */
+    background-color: ivory;
+    overflow: hidden;
 }
 
 .carousel {
@@ -34,7 +35,7 @@
     height: 100%;
     /* transform: translateZ(-4rem); */
     transform-style: preserve-3d;
-    /* transition: transform .5s; */
+    transition: transform .5s;
 }
 
 .cell {
@@ -45,9 +46,10 @@
     height: 100%;
     transform-origin: center;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 200%;
     /* white-space: nowrap; */
-    /* backface-visibility: hidden; */
+    backface-visibility: hidden;
 }
 
 .cell:nth-of-type(1) {
@@ -79,6 +81,16 @@
 }
 .cell:nth-of-type(10) {
     transform: rotateX(-324deg) translateZ(5rem) scale(.6);
+}
+
+.date {
+    width: 15rem;
+    background-color: lawngreen;
+    font-size: 1.5rem;
+}
+
+.date::-webkit-inner-spin-button {
+    display: none;
 }
 
 .btn-get {

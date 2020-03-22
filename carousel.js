@@ -1,10 +1,9 @@
-export const scrollProvince = function (e) {
-    const deg = 0;
-    const carousel = document.querySelector('.carousel');
-    const newRotateX = this.deltaY < 0 ? rotateX - 36 : rotateX + 36;
+let deg = 0;
+export const scrollCell = e => {
+    const carousel = document.getElementsByClassName('carousel')[0];
+    const dY = e.deltaY;
+    deg = dY < 0 ? deg - 36 : deg + 36;
     
     e.preventDefault();
-    this.style.transform = `rotateX(${newRotateX}deg) translateZ(5rem) scale(.6)`;
-    
-    // getComputedStyle结果是matrix，最好用实例的方法
+    carousel.style.transform = `rotateX(${deg}deg)`;
 };

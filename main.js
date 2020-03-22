@@ -1,4 +1,6 @@
 import * as carousel from './carousel.js';
 
-const stage = document.getElementById('province');
-stage.addEventListener('wheel', carousel.scrollProvince);
+const cells = document.getElementsByClassName('cell');
+for (let cell of cells) {
+    cell.addEventListener('wheel', carousel.scrollCell);
+}
