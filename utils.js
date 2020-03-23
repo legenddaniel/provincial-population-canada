@@ -1,18 +1,23 @@
-let deg = 0;
+export const carousel = document.getElementsByClassName('carousel')[0];
+
+const getRotateDeg = () => {
+    const rotate = carousel.style.transform || '0';
+    const deg = +rotate.match(/-*\d+/)[0];
+    return deg;
+};
 
 export const scrollCell = e => {
-    const carousel = document.getElementsByClassName('carousel')[0];
     const dY = e.deltaY;
-    deg = dY < 0 ? deg - 36 : deg + 36;
-    
+    const deg = getRotateDeg();
+    const newDeg = dY < 0 ? deg - 36 : deg + 36;
+
     e.preventDefault();
-    carousel.style.transform = `rotateX(${deg}deg)`;
+    // e.stopPropagation();
+    carousel.style.transform = `rotateX(${newDeg}deg)`;
 };
 
 export const getProvince = () => {
-    const carousel = document.getElementsByClassName('carousel')[0];
-    const rotate = carousel.style.transform;
-    const deg = +rotate.match(/-*\d+/)[0];
+    const deg = getRotateDeg();
     let province;
     switch (deg % 360) {
         case 36:
@@ -55,7 +60,7 @@ export const getProvince = () => {
             province = "Alberta";
             break;
     }
-    // console.log(province);
+    console.log(province);
     return province;
 };
 
@@ -65,5 +70,5 @@ const showResult = () => {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", '/data.json', true);
     xhr.send();
-    
+
 }
