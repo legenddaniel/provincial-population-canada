@@ -70,5 +70,7 @@ const showResult = () => {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", '/data.json', true);
     xhr.send();
-
+    xhr.onload = () => {
+        
+    }
 }
