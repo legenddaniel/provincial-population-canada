@@ -24,15 +24,20 @@
     </section>
     <section class="section">
         <h2 class="txt-lg">What is this?</h2>
-        <p class="w-60 txt-center">Estimates of the number of people living in Canada and the provinces, including
+        <p class="w-60 txt-center">Estimates of the number of people living in Canada and the provinces (Yukon, Nunavut
+            and Northwest Territory not included), including
             Canadian citizens and immigrants as well as non-permanent residents from 1946 to 2015. For up-to-date data
             please visit <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000901" target="_blank"
                 title="Population estimates, quarterly">Statistics Canada</a></p>
     </section>
-    <section class="section">
+    <section class="section" id="national">
         <h2>Check how many people were living in Canada in:</h2>
+        <div class="flex justify-center w-60 h-4r mt-5">
+            <input type="date" min="1946-01-01" max="2015-04-01" class="date">
+            <button class="btn-get">Click for the result</button>
+        </div>
     </section>
-    <section class="section">
+    <section class="section" id="provincial">
         <h2>Or on a basis of the province:</h2>
         <div class="flex justify-center w-60 h-4r mt-5">
             <!-- <div class="p-abs cover"></div> -->
