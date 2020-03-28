@@ -1,6 +1,7 @@
 export const carousel = document.getElementsByClassName('carousel')[0];
-export const btnGet1 = document.querySelector('#national .btn-get');
-export const btnGet2 = document.querySelector('#provincial .btn-get');
+export const btnGet1 = document.querySelector('#section-3 .btn-get');
+export const btnGet2 = document.querySelector('#section-4 .btn-get');
+export const btnArrow = document.getElementsByClassName('arrow');
 
 const getValidDate = i => {
     const date = document.getElementsByClassName('date')[i].value;
@@ -18,6 +19,10 @@ const getRotateDeg = () => {
     const rotate = carousel.style.transform || '0';
     const deg = +rotate.match(/-*\d+/)[0];
     return deg;
+};
+
+export const topPage = () => {
+    window.scrollTo(0, 0);
 };
 
 export const scrollCell = e => {
@@ -122,4 +127,9 @@ export const showResult2 = () => {
         const result = getResult();
         btnGet2.textContent = result;
     };
+};
+
+export const scrollPage = e => {
+    let currentPage = 0;
+    const [direction, posOrNeg] = this === btnArrow[0] ? ['top', '-'] : ['bot', '+'];
 };
