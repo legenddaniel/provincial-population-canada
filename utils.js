@@ -5,8 +5,8 @@ export const btnArrow = document.getElementById('arrows');
 
 const getValidDate = i => {
     const date = document.getElementsByClassName('date')[i].value;
-    const year = date.match(/^\d{4}-/); // ****-
-    const monthNDay = date.match(/\d{2}-\d{2}$/); // **-**
+    const year = date.match(/^\d{4}-/);
+    const monthNDay = date.match(/\d{2}-\d{2}$/);
     const validDate =
         monthNDay >= '10-01' ? '10-01' :
             monthNDay >= '07-01' ? '07-01' :
@@ -29,9 +29,7 @@ export const scrollCell = e => {
     const dY = e.deltaY;
     const deg = getRotateDeg();
     const newDeg = dY < 0 ? deg - 36 : deg + 36;
-
     e.preventDefault();
-    // e.stopPropagation();
     carousel.style.transform = `rotateX(${newDeg}deg)`;
 };
 
@@ -90,8 +88,7 @@ export const showResult1 = () => {
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
-        const population = data.find(i => i[8].includes(date)) || ''; //whole array
-        // console.log(population);
+        const population = data.find(i => i[8].includes(date)) || '';
         const result = population[11] || 'Select a date';
         btnGet1.textContent = result;
     };
@@ -105,8 +102,7 @@ export const showResult2 = () => {
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
-        const population = data.find(i => i[8].includes(date)) || ''; //whole array
-        // console.log(population);
+        const population = data.find(i => i[8].includes(date)) || '';
         const provinceData = {
             'Alberta': 9,
             'British Columbia': 10,
@@ -132,12 +128,13 @@ export const showResult2 = () => {
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
     const innerHeight = window.innerHeight;
-    window.scrollBy(0, +`${direction}${innerHeight}`);
+    window.scrollBy({
+        top: +`${direction}${innerHeight}`,
+        behavior: 'smooth'
+    });
 };
 
 export const hideArrow = e => {
-    // 点击top，显示bot，pageY小于1.5innerHeight隐藏top
-    // 点击bot，显示top，pageY大于3.5innerHeight隐藏bot
     const that = e.target;
     const position = e.pageY;
     const innerHeight = window.innerHeight;
