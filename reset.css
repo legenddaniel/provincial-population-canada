@@ -4,13 +4,22 @@
     box-sizing: border-box;
 }
 
-body, ul {
+body,
+ul {
     padding: 0;
     margin: 0;
 }
 
 a {
     text-decoration: none;
+}
+
+a:visited {
+    color: initial;
+}
+
+a:hover {
+    color: seagreen;
 }
 
 ul {
@@ -21,12 +30,3 @@ input {
     border: none;
     outline: none;
 }
-
-/* input[type="date"] {
-    background-color: lawngreen;
-    font-size: 1.5rem;
-} */
-
-/* input[type="date"]::-webkit-inner-spin-button {
-    display: none;
-} */
