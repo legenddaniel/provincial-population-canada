@@ -1,6 +1,8 @@
 /* Component ↓ */
-body {
-    /* overflow: hidden; */
+.btn-txt {
+    background-color: inherit;
+    border: none;
+    outline: none;
 }
 
 .arrow {
@@ -8,6 +10,7 @@ body {
     left: 50%;
     /* width: 5rem;
     height: 3rem; */
+    font-size: 2rem;
 }
 
 .arrow-top {
@@ -116,10 +119,7 @@ body {
 .btn-get {
     width: max-content;
     /* height: 4rem; */
-    border: none;
-    background-color: coral;
     font-size: 2rem;
-    outline: none;
 }
 
 /* Component ↑ */

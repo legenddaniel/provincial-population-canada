@@ -1,7 +1,7 @@
 export const carousel = document.getElementsByClassName('carousel')[0];
-export const btnGet1 = document.querySelector('#section-3 .btn-get');
-export const btnGet2 = document.querySelector('#section-4 .btn-get');
-export const btnArrow = document.getElementsByClassName('arrow');
+export const btnGet1 = document.querySelector('#national .btn-get');
+export const btnGet2 = document.querySelector('#provincial .btn-get');
+export const btnArrow = document.getElementById('arrows');
 
 const getValidDate = i => {
     const date = document.getElementsByClassName('date')[i].value;
@@ -21,7 +21,7 @@ const getRotateDeg = () => {
     return deg;
 };
 
-export const topPage = () => {
+export const goTop = () => {
     window.scrollTo(0, 0);
 };
 
@@ -130,6 +130,26 @@ export const showResult2 = () => {
 };
 
 export const scrollPage = e => {
-    let currentPage = 0;
-    const [direction, posOrNeg] = this === btnArrow[0] ? ['top', '-'] : ['bot', '+'];
+    const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
+    const innerHeight = window.innerHeight;
+    window.scrollBy(0, +`${direction}${innerHeight}`);
 };
+
+export const hideArrow = e => {
+    // 点击top，显示bot，pageY小于1.5innerHeight隐藏top
+    // 点击bot，显示top，pageY大于3.5innerHeight隐藏bot
+    const that = e.target;
+    const position = e.pageY;
+    const innerHeight = window.innerHeight;
+    if (that === btnArrow.firstElementChild) {
+        that.nextElementSibling.classList.remove('d-none');
+        if (position < 1.5 * innerHeight) {
+            that.classList.add('d-none');
+        }
+    } else {
+        that.previousElementSibling.classList.remove('d-none');
+        if (position > 2.5 * innerHeight) {
+            that.classList.add('d-none');
+        }
+    }
+}
