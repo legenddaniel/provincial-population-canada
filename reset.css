@@ -10,6 +10,20 @@ ul {
     margin: 0;
 }
 
+h1,
+h2,
+p {
+    max-width: 80vw;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
 a {
     text-decoration: none;
 }
@@ -29,4 +43,32 @@ ul {
 input {
     border: none;
     outline: none;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 4vw;
+    }
+
+    h2 {
+        font-size: 3vw;
+    }
+    
+    p {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+    
+    p {
+        font-size: .75rem;
+    }
 }
