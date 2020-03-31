@@ -149,4 +149,4 @@ export const hideArrow = e => {
             that.classList.add('d-none');
         }
     }
-}
+};
