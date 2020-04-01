@@ -150,3 +150,15 @@ export const hideArrow = e => {
         }
     }
 };
+
+const ifresize = (() => { // 考虑替代现有页面切换
+    let pageNum = Math.round(window.scrollY / window.innerHeight);
+    const updatePageNum = () => {
+        pageNum = Math.round(window.scrollY / window.innerHeight);
+    }; // 点击arrow后，mouseup / window.on('animationend') / rAF
+    const restorePage = () => {
+        const scrollY = pageNum * window.innerHeight;
+        window.scrollTo(0, scrollY);
+    }; // resize时
+    return { updatePageNum, restorePage };
+})(); // 进入页面时
