@@ -151,8 +151,8 @@ export const hideArrow = e => {
     }
 };
 
+let timer; // debounceResize.bind(timer/isScrolling)
 export const debounceResize = fn => { // 好像没啥用？？
-    let timer;
     window.addEventListener('resize', () => {
         if (timer) {
             window.cancelAnimationFrame(timer);
@@ -161,17 +161,26 @@ export const debounceResize = fn => { // 好像没啥用？？
     });
 };
 
-export const ifResize = (() => { // 考虑替代现有页面切换
-    let pageNum = Math.round(window.scrollY / window.innerHeight);
+export const scrollEnd = (() => {
+    let isScrolling;
+    return () => {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            position.updatePageNum();
+        }, 66);
+    };
+})();
+
+export const position = (() => { // 考虑替代现有页面切换
+    let pageNum;
     const updatePageNum = () => {
         pageNum = Math.round(window.scrollY / window.innerHeight);
-        console.log('pageNum: ' + pageNum);
-    }; // 点击arrow后，mouseup / window.on('animationend') / rAF
+        console.log(pageNum);
+    };
     const restorePage = () => {
-        updatePageNum();
         const scrollY = pageNum * window.innerHeight;
-        console.log('scrollY: ' + scrollY);
         window.scrollTo(0, scrollY);
-    }; // resize时
+    };
     return { updatePageNum, restorePage };
 })();
+
