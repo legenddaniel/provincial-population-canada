@@ -132,23 +132,7 @@ export const scrollPage = e => {
         top: +`${direction}${innerHeight}`,
         behavior: 'smooth'
     });
-};
-
-export const hideArrow = e => {
-    const that = e.target;
-    const position = e.pageY;
-    const innerHeight = window.innerHeight;
-    if (that === btnArrow.firstElementChild) {
-        that.nextElementSibling.classList.remove('d-none');
-        if (position < 1.5 * innerHeight) {
-            that.classList.add('d-none');
-        }
-    } else {
-        that.previousElementSibling.classList.remove('d-none');
-        if (position > 2.5 * innerHeight) {
-            that.classList.add('d-none');
-        }
-    }
+    e.currentTarget.removeEventListener('click', scrollPage);
 };
 
 let timer; // debounceResize.bind(timer/isScrolling)
@@ -167,12 +151,13 @@ export const scrollEnd = (() => {
         window.clearTimeout(isScrolling);
         isScrolling = setTimeout(() => {
             position.updatePageNum();
+            btnArrow.addEventListener('click', scrollPage);
         }, 66);
     };
 })();
 
 export const position = (() => { // 考虑替代现有页面切换
-    let pageNum;
+    let pageNum = 0;
     const updatePageNum = () => {
         pageNum = Math.round(window.scrollY / window.innerHeight);
         console.log(pageNum);
@@ -181,6 +166,39 @@ export const position = (() => { // 考虑替代现有页面切换
         const scrollY = pageNum * window.innerHeight;
         window.scrollTo(0, scrollY);
     };
-    return { updatePageNum, restorePage };
+    const toggleArrow = e => {
+
+        // showtop: page0, click bot
+        // hidetop: page1, click top
+        // hidebot: page2, click bot
+        // showbot: page3, click top
+
+        const toggle = arrowAct => {
+            const topOrBot = document.getElementsByClassName(arrowAct)[0].classList;
+            const showArrow = () => {
+                topOrBot.remove('d-none');
+            };
+            const hideArrow = () => {
+                topOrBot.add('d-none');
+            };
+            return { showArrow, hideArrow };
+        };
+
+        const toggleTop = toggle('arrow-top');
+        const toggleBot = toggle('arrow-bot');
+
+        const target = arrowPas => document.getElementsByClassName(arrowPas)[0];
+        const pageArrowMap = [
+            { 'arrow-bot': toggleTop.showArrow },
+            { 'arrow-top': toggleTop.hideArrow },
+            { 'arrow-bot': toggleBot.hideArrow },
+            { 'arrow-top': toggleBot.showArrow }
+        ];
+        const arrow = pageArrowMap[pageNum];
+        const that = e.target;
+
+        pageNum in pageArrowMap && that === target(Object.keys(arrow)[0]) && Object.values(arrow)[0]();
+    };
+    return { updatePageNum, restorePage, toggleArrow };
 })();
 
