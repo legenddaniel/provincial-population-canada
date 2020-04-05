@@ -8,9 +8,7 @@
 .arrow {
     position: fixed;
     left: 50%;
-    /* width: 5rem;
-    height: 3rem; */
-    /* font-size: 2rem; */
+    color: rgb(214, 214, 214);
 }
 
 .arrow-top {
@@ -25,11 +23,9 @@
 }
 
 .arrows {
-    
 }
 
 .arrow-float {
-
 }
 
 .section {
@@ -47,13 +43,12 @@
 
 .stage {
     position: relative;
-    width: 100%;
-    min-width: 30rem;
+    width: 42rem;
+    padding-top: 2rem;
     /* height: 4rem; */
     -webkit-perspective: 20rem;
     perspective: 20rem;
     /* perspective-origin: 75%; */
-    background-color: ivory;
     overflow: hidden;
 }
 
@@ -81,7 +76,7 @@
     -webkit-transform-origin: center;
     transform-origin: center;
     /* text-align: center; */
-    font-size: inherit;
+    /* font-size: inherit; */
     line-height: 200%;
     white-space: nowrap;
     -webkit-backface-visibility: hidden;
@@ -132,8 +127,9 @@
 .date {
     width: 15rem;
     /* min-width: 15rem; */
-    background-color: lawngreen;
+    background-color: rgb(214, 214, 214);
     font-size: inherit;
+    font-weight: bold;
     text-align: inherit;
 }
 
@@ -146,6 +142,7 @@
     width: 15rem;
     /* min-width: 15rem; */
     /* height: 4rem; */
+    background-color: rgb(214, 214, 214);
     white-space: nowrap;
     /* text-align: center; */
     font-size: inherit;
@@ -224,6 +221,10 @@
     width: 17rem;
 }
 
+.w-bg-red {
+    width: 40rem;
+}
+
 .h-full {
     height: 100vh;
 }
@@ -240,17 +241,25 @@
     height: 50%;
 }
 
+.mt-8 {
+    margin-top: 8rem;
+}
+
 .mt-5 {
     margin-top: 5rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mt--3 {
+    margin-top: -3rem;
 }
 
 /* Size ↑ */
 
 /* Color ↓ */
-.bg-container {
-    background-color: coral;
-}
-
 .bg-canada {
     background: url(/canada.jpg) center fixed no-repeat;
     background-size: cover;
@@ -262,8 +271,12 @@
     text-align: center;
 }
 
+.txt-bg-red {
+    color: #fffcdf;
+}
+
 .txt-xl {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .txt-lg {
@@ -276,6 +289,37 @@
 
 .bold {
     font-weight: bold;
+}
+
+.txt-em {
+    font-size: 4.5rem;
+    font-weight: bold;
+}
+
+.txt-rainbow {
+    background: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from(rgba(255, 210, 125, 0.8)),
+        color-stop(rgba(255, 255, 128, 0.8)),
+        color-stop(rgba(64, 128, 64, 0.8)),
+        color-stop(rgba(128, 128, 255, 0.8)),
+        color-stop(rgba(105, 67, 133, 0.8)),
+        to(rgba(129, 63, 129, 0.8))
+    );
+    background: linear-gradient(
+        to right,
+        rgba(255, 210, 125, 0.8),
+        rgba(255, 255, 128, 0.8),
+        rgba(64, 128, 64, 0.8),
+        rgba(128, 128, 255, 0.8),
+        rgba(105, 67, 133, 0.8),
+        rgba(129, 63, 129, 0.8)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 /* Text ↑ */
@@ -294,6 +338,10 @@
         height: 16vw;
     }
 
+    .w-bg-red {
+        width: 84vw;
+    }
+
     .stage {
         min-width: 64vw;
     }
@@ -304,11 +352,15 @@
     }
 
     .txt-xl {
-        font-size: 4vw;
+        font-size: 6vw;
     }
 
     .txt-lg {
         font-size: 3vw;
+    }
+
+    .txt-em {
+        font-size: 9vw;
     }
 }
 
@@ -321,13 +373,12 @@
         height: 6rem;
     }
 
-    .stage {
-        min-width: 18rem;
+    .w-bg-red {
+        width: 24rem;
     }
 
-    .cell:nth-of-type(5) {
-        font-size: 1.2rem;
-        line-height: 250%;
+    .stage {
+        min-width: 18rem;
     }
 
     .date,
@@ -337,10 +388,14 @@
     }
 
     .txt-xl {
-        font-size: 1.5rem;
+        font-size: 2.25rem;
     }
 
     .txt-lg {
         font-size: 1rem;
+    }
+
+    .txt-em {
+        font-size: 3rem;
     }
 }

@@ -167,12 +167,6 @@ export const position = (() => { // 考虑替代现有页面切换
         window.scrollTo(0, scrollY);
     };
     const toggleArrow = e => {
-
-        // showtop: page0, click bot
-        // hidetop: page1, click top
-        // hidebot: page2, click bot
-        // showbot: page3, click top
-
         const toggle = arrowAct => {
             const topOrBot = document.getElementsByClassName(arrowAct)[0].classList;
             const showArrow = () => {
@@ -189,10 +183,10 @@ export const position = (() => { // 考虑替代现有页面切换
 
         const target = arrowPas => document.getElementsByClassName(arrowPas)[0];
         const pageArrowMap = [
-            { 'arrow-bot': toggleTop.showArrow },
-            { 'arrow-top': toggleTop.hideArrow },
-            { 'arrow-bot': toggleBot.hideArrow },
-            { 'arrow-top': toggleBot.showArrow }
+            { 'arrow-bot': toggleTop.showArrow }, // showtop: page0, click bot
+            { 'arrow-top': toggleTop.hideArrow }, // hidetop: page1, click top
+            { 'arrow-bot': toggleBot.hideArrow }, // hidebot: page2, click bot
+            { 'arrow-top': toggleBot.showArrow }  // showbot: page3, click top
         ];
         const arrow = pageArrowMap[pageNum];
         const that = e.target;
