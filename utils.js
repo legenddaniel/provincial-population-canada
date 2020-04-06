@@ -1,6 +1,6 @@
 export const carousel = document.getElementsByClassName('carousel')[0];
-export const btnGet1 = document.querySelector('#national .btn-get');
-export const btnGet2 = document.querySelector('#provincial .btn-get');
+export const btnGet1 = document.querySelector('#national .btn-txt');
+export const btnGet2 = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 
 const getValidDate = i => {
@@ -194,5 +194,35 @@ export const position = (() => { // 考虑替代现有页面切换
         pageNum in pageArrowMap && that === target(Object.keys(arrow)[0]) && Object.values(arrow)[0]();
     };
     return { updatePageNum, restorePage, toggleArrow };
+})();
+
+const changeImg = () => {
+    const provinceImgMap = {
+        'Alberta': 'img-ab',
+        'British Columbia': 'img-bc',
+        'Manitoba': 'img-mn',
+        'New Brunswick': 'img-nb',
+        'Newfoundland And Labrador': 'img-nl',
+        'Nova Scotia': 'img-ns',
+        'Ontario': 'img-on',
+        'Prince Edward Island': 'img-pe',
+        'Quebec': 'img-qc',
+        'Saskatchewan': 'img-sk',
+    };
+    const province = getProvince();
+    const img = provinceImgMap[province];
+    const aside = document.getElementById('province-img');
+
+    aside.setAttribute('class', img);
+};
+
+export const wheelEnd = (() => {
+    let isScrolling;
+    return () => {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+            changeImg()
+        }, 500);
+    };
 })();
 

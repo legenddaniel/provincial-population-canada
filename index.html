@@ -15,10 +15,6 @@
 
 <!-- ipad字体很小 -->
 
-<!-- 首次进入淡入 -->
-<!-- 首次进入首页暗色，高亮guide和箭头，箭头悬浮/发光 -->
-<!-- widgets背景色 -->
-
 <body class="of-hidden txt-center">
     <div class="arrows "id="arrows">
         <button class="btn-txt arrow arrow-top d-none txt-xl">&lt;</button>
@@ -43,11 +39,11 @@
         <section class="section" id="national">
             <h2 class="mt--3">Check <br>how many <br><span class="txt-em txt-rainbow">PEOPLE </span><br>were living in <br><span class="txt-em">Canada </span><br>in</h2>
             <div class="flex justify-center mt-2 h-sg txt-lg">
-                <input type="date" min="1946-01-01" max="2015-04-01" class="date">
-                <button class="btn-txt btn-get">Click for the result</button>
+                <input type="date" min="1946-01-01" max="2015-04-01" class="widget date">
+                <button class="btn-txt widget">Click for the result</button>
             </div>
         </section>
-        <section class="section" id="provincial">
+        <section class="section p-rel" id="provincial">
             <h2 class="mt-8">Or in the <br><span class="txt-em">province </span></h2>
             <div class="flex flex-column justify-center align-center h-db">
                 <div class="stage h-50p">
@@ -65,12 +61,11 @@
                     </ul>
                 </div>
                 <div class="flex justify-center h-50p txt-lg">
-                    <input type="date" min="1951-07-01" max="2015-04-01" class="date">
-                    <button class="btn-txt btn-get">Click for the result</button>
+                    <input type="date" min="1951-07-01" max="2015-04-01" class="widget date">
+                    <button class="btn-txt widget">Click for the result</button>
                 </div>
-
             </div>
-
+            <aside class="img-ab" id="province-img"></aside>
         </section>
     </main>
 
