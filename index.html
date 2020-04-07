@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
     <meta name="description" content="Canada Population Estimates">
@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<!-- ipad字体很小 -->
+<!-- 横屏优化 (添加max-height)-->
+<!-- 背景切换卡顿 -->
 
 <body class="of-hidden txt-center">
-    <div class="arrows "id="arrows">
+    <div id="arrows">
         <button class="btn-txt arrow arrow-top d-none txt-xl">&lt;</button>
-        <button class="btn-txt arrow arrow-bot arrow-float txt-xl">&gt;</button>
+        <button class="btn-txt arrow arrow-bot txt-xl">&gt;</button>
     </div>
     <main class="bg-canada txt-bg-red">
         <section class="section">
@@ -27,7 +28,7 @@
         </section>
         <section class="section">
             <h2>What is this?</h2>
-            <p class="w-bg-red">Estimates of the number of people living in Canada and the provinces (Yukon,
+            <p class="w-bg-red mw-80 mt-5">Estimates of the number of people living in Canada and the provinces (Yukon,
                 Nunavut
                 and Northwest Territory not included), including
                 Canadian citizens and immigrants as well as non-permanent residents from 1946 to 2015. <br><br>For
@@ -40,7 +41,7 @@
             <h2 class="mt--3">Check <br>how many <br><span class="txt-em txt-rainbow">PEOPLE </span><br>were living in <br><span class="txt-em">Canada </span><br>in</h2>
             <div class="flex justify-center mt-2 h-sg txt-lg">
                 <input type="date" min="1946-01-01" max="2015-04-01" class="widget date">
-                <button class="btn-txt widget">Click for the result</button>
+                <button class="btn-txt widget">Click for result</button>
             </div>
         </section>
         <section class="section p-rel" id="provincial">
@@ -62,7 +63,7 @@
                 </div>
                 <div class="flex justify-center h-50p txt-lg">
                     <input type="date" min="1951-07-01" max="2015-04-01" class="widget date">
-                    <button class="btn-txt widget">Click for the result</button>
+                    <button class="btn-txt widget">Click for result</button>
                 </div>
             </div>
             <aside class="img-ab" id="province-img"></aside>

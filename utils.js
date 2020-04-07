@@ -156,7 +156,7 @@ export const scrollEnd = (() => {
     };
 })();
 
-export const position = (() => { // 考虑替代现有页面切换
+export const position = (() => {
     let pageNum = 0;
     const updatePageNum = () => {
         pageNum = Math.round(window.scrollY / window.innerHeight);

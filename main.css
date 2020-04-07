@@ -23,12 +23,6 @@
     transform: translate(-50%, -100%) rotate(90deg);
 }
 
-.arrows {
-}
-
-.arrow-float {
-}
-
 .section {
     display: -webkit-box;
     display: flex;
@@ -40,6 +34,7 @@
     -webkit-box-align: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 .stage {
@@ -318,6 +313,10 @@
     width: 60vw;
 }
 
+.mw-80 {
+    max-width: 80vw;
+}
+
 .w-17r {
     width: 17rem;
 }
@@ -474,7 +473,7 @@
     }
 
     .w-bg-red {
-        width: 24rem;
+        width: 30rem;
     }
 
     .stage {
@@ -491,10 +490,17 @@
     }
 
     .txt-lg {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 
     .txt-em {
-        font-size: 3rem;
+        font-size: 3.375rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .cell:nth-of-type(5) {
+        font-size: 1.6rem;
+        line-height: 200%;
     }
 }
