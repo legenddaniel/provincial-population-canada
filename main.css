@@ -128,6 +128,13 @@
     white-space: nowrap;
 }
 
+.date::before {
+    content: attr(data-placeholder);
+    width: 100%;
+}
+
+.date:focus::before,
+.date:valid::before,
 .date::-webkit-inner-spin-button,
 .date::-webkit-calendar-picker-indicator {
     display: none;
@@ -498,13 +505,43 @@
     }
 }
 
-@media screen and (max-width: 576px) and (max-aspect-ratio: 1 / 2) {
-    
-}
-
 @media screen and (max-width: 450px) {
     .cell:nth-of-type(5) {
         font-size: 1.6rem;
         line-height: 200%;
+    }
+}
+
+@media screen and (max-height: 576px) {
+    .txt-xl {
+        font-size: 10vh;
+    }
+
+    .txt-lg {
+        font-size: 5vh;
+    }
+
+    .txt-em {
+        font-size: 15vh;
+    }
+
+    .mt-8 {
+        margin-top: 16vh;
+    }
+
+    .mt-5 {
+        margin-top: 10vh;
+    }
+
+    .mt-2 {
+        margin-top: -5vh;
+    }
+
+    .mt--3 {
+        margin-top: 0;
+    }
+
+    .widget {
+        color: #000;
     }
 }

@@ -67,3 +67,23 @@ input {
         font-size: .75rem;
     }
 }
+
+@media screen and (max-width: 768px) and (max-height: 500px) {
+    h1 {
+        font-size: 6.67vh;
+    }
+
+    h2 {
+        font-size: 5vh;
+    }
+    
+    p {
+        font-size: 3.33vh;
+    }
+}
+
+@media screen and (max-width: 576px) and (orientation: landscape) {
+    p {
+        color: #000;
+    }
+}
