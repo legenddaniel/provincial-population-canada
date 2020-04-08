@@ -128,13 +128,6 @@
     white-space: nowrap;
 }
 
-.date::before {
-    content: attr(data-placeholder);
-    width: 100%;
-}
-
-.date:focus::before,
-.date:valid::before,
 .date::-webkit-inner-spin-button,
 .date::-webkit-calendar-picker-indicator {
     display: none;
