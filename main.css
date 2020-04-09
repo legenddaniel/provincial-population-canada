@@ -144,7 +144,7 @@
 .img-qc,
 .img-sk {
     position: absolute;
-    bottom: 3px;
+    /* bottom: 3px; */
     display: -webkit-box;
     display: flex;
     -webkit-box-pack: justify;
