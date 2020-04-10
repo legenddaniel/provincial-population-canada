@@ -8,4 +8,8 @@ Bootstrap-style OOCSS
 
 No sprites due to the complicated calculation of the background-position for calc() without preprocessor
 
+Due to the normal concensus that larger screen should display more content, small font size issue on some models of mobile phones would not be fixed
+
+On Firefox the province images keep flickering despite preload and cache
+
 <img src="img/qr-page.png">

@@ -189,9 +189,8 @@ export const position = (() => {
             { 'arrow-top': toggleBot.showArrow }  // showbot: page3, click top
         ];
         const arrow = pageArrowMap[pageNum];
-        const that = e.target;
 
-        pageNum in pageArrowMap && that === target(Object.keys(arrow)[0]) && Object.values(arrow)[0]();
+        pageNum in pageArrowMap && e.target === target(Object.keys(arrow)[0]) && Object.values(arrow)[0]();
     };
     return { updatePageNum, restorePage, toggleArrow };
 })();
@@ -225,4 +224,18 @@ export const wheelEnd = (() => {
         }, 500);
     };
 })();
+
+export const preloadImg = (...urls) => {
+    const toolDiv = document.createElement('div');
+    toolDiv.className = 'd-none';
+    toolDiv.title = '<div> for img preload as rel=preload && data-* && Image() not working well';
+
+    let html = '';
+    urls.forEach(url => {
+        html += `<img src="${url}">`;
+    });
+    toolDiv.innerHTML = html;
+
+    document.body.appendChild(toolDiv);
+};
 

@@ -40,6 +40,10 @@ input {
     outline: none;
 }
 
+button:active {
+    padding: 0;
+}
+
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 4vw;
@@ -48,7 +52,7 @@ input {
     h2 {
         font-size: 3vw;
     }
-    
+
     p {
         font-size: 2vw;
     }
@@ -62,13 +66,13 @@ input {
     h2 {
         font-size: 1.125rem;
     }
-    
+
     p {
-        font-size: .75rem;
+        font-size: 0.75rem;
     }
 }
 
-@media screen and (max-width: 768px) and (max-height: 500px) {
+@media screen and (max-height: 550px) {
     h1 {
         font-size: 6.67vh;
     }
@@ -76,14 +80,14 @@ input {
     h2 {
         font-size: 5vh;
     }
-    
+
     p {
         font-size: 3.33vh;
     }
 }
 
-@media screen and (max-width: 576px) and (orientation: landscape) {
+/* @media screen and (max-width: 576px) and (orientation: landscape) {
     p {
         color: #000;
     }
-}
+} */
