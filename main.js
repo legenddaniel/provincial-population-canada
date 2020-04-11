@@ -8,11 +8,11 @@ window.addEventListener('scroll', scrollEnd);
 window.addEventListener('beforeunload', goTop);
 window.addEventListener('resize', position.restorePage);
 
-carousel.addEventListener('wheel', scrollCell);
+carousel.addEventListener('wheel', scrollCell) || carousel.addEventListener('touchmove', scrollCell);
 // carousel.addEventListener('wheel', getProvince);
-carousel.addEventListener('wheel', wheelEnd);
-carousel.addEventListener('touchmove', scrollCell);
-carousel.addEventListener('touchmove', wheelEnd);
+carousel.addEventListener('wheel', wheelEnd) || carousel.addEventListener('touchmove', wheelEnd);
+
+
 
 btnGet1.addEventListener('click', showResult1);
 btnGet2.addEventListener('click', showResult2);
