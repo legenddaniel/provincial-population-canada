@@ -1,3 +1,9 @@
+// e.deltaY ios
+// find() includes() ie
+// scrollBy options ie edge-79
+// scrollBy ie 11-
+// classList remove add ie10-
+
 export const carousel = document.getElementsByClassName('carousel')[0];
 export const btnGet1 = document.querySelector('#national .btn-txt');
 export const btnGet2 = document.querySelector('#provincial .btn-txt');
@@ -77,13 +83,12 @@ export const getProvince = () => {
             province = "Alberta";
             break;
     }
-    // console.log(province);
     return province;
 };
 
 export const showResult1 = () => {
     const date = getValidDate(0);
-    const xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
     xhr.open("GET", '/data.json', true);
     xhr.send();
     xhr.onload = () => {
@@ -97,7 +102,7 @@ export const showResult1 = () => {
 export const showResult2 = () => {
     const date = getValidDate(1);
     const province = getProvince();
-    const xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
     xhr.open("GET", '/data.json', true);
     xhr.send();
     xhr.onload = () => {
@@ -128,10 +133,14 @@ export const showResult2 = () => {
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
     const innerHeight = window.innerHeight;
-    window.scrollBy({
-        top: +`${direction}${innerHeight}`,
-        behavior: 'smooth'
-    });
+    try {
+        window.scrollBy({
+            top: +`${direction}${innerHeight}`,
+            behavior: 'smooth'
+        })
+    } catch (e) {
+        window.scrollBy(0, +(direction + innerHeight))
+    };
     e.currentTarget.removeEventListener('click', scrollPage);
 };
 
@@ -212,7 +221,7 @@ const changeImg = () => {
     const img = provinceImgMap[province];
     const aside = document.getElementById('province-img');
 
-    aside.setAttribute('class', img);
+    aside.className = img;
 };
 
 export const wheelEnd = (() => {
@@ -228,7 +237,7 @@ export const wheelEnd = (() => {
 export const preloadImg = (...urls) => {
     const toolDiv = document.createElement('div');
     toolDiv.className = 'd-none';
-    toolDiv.title = '<div> for img preload as rel=preload && data-* && Image() not working well';
+    toolDiv.setAttribute('title', '<div> for img preload as rel=preload && data-* && Image() not working well');
 
     let html = '';
     urls.forEach(url => {
