@@ -89,7 +89,7 @@ export const getProvince = () => {
 export const showResult1 = () => {
     const date = getValidDate(0);
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open("GET", 'data.json', true);
+    xhr.open("GET", './data.json', true);
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
@@ -103,7 +103,7 @@ export const showResult2 = () => {
     const date = getValidDate(1);
     const province = getProvince();
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open("GET", 'data.json', true);
+    xhr.open("GET", './data.json', true);
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
