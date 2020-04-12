@@ -9,6 +9,23 @@ export const btnGet1 = document.querySelector('#national .btn-txt');
 export const btnGet2 = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 
+const debounce = (fn, delay, immediate) => {
+    let timer;
+    return function() {
+        const that = this;
+        const args = arguments;
+        
+        clearTimeout(timer);
+        
+        if (immediate && !timer) fn.apply(that, args);
+        
+        timer = setTimeout(() => {
+            timer = null;
+            fn.apply(that, args);
+        }, delay);
+    };
+};
+
 const getValidDate = i => {
     const date = document.getElementsByClassName('date')[i].value;
     const year = date.match(/^\d{4}-/);
@@ -35,9 +52,23 @@ export const scrollCell = e => {
     const dY = e.deltaY;
     const deg = getRotateDeg();
     const newDeg = dY < 0 ? deg - 36 : deg + 36;
-    e.preventDefault();
+    // e.preventDefault();
     carousel.style.transform = `rotateX(${newDeg}deg)`;
 };
+
+export const scrollCellMobile = (() => {
+    let touchStart;
+    const setTouchStart = e => {
+        touchStart = e.changedTouches[0];
+    };
+    const getTouchEnd = e => {
+        const deg = getRotateDeg();
+        const touchEnd = e.changedTouches[0];
+        const newDeg = touchEnd.pageY > touchStart.pageY ? deg - 36 : deg + 36;
+        carousel.style.transform = `rotateX(${newDeg}deg)`;
+    };
+    return { setTouchStart, getTouchEnd };
+})();
 
 export const getProvince = () => {
     const deg = getRotateDeg();
@@ -139,37 +170,22 @@ export const scrollPage = e => {
             behavior: 'smooth'
         })
     } catch (e) {
-        window.scrollBy(0, +(direction + innerHeight))
+        window.scrollBy(0, +`${direction}${innerHeight}`)
     };
     e.currentTarget.removeEventListener('click', scrollPage);
 };
 
-let timer; // debounceResize.bind(timer/isScrolling)
-export const debounceResize = fn => { // 好像没啥用？？
-    window.addEventListener('resize', () => {
-        if (timer) {
-            window.cancelAnimationFrame(timer);
-        }
-        timer = window.requestAnimationFrame(fn);
-    });
-};
+export const scrollEnd = debounce(() => {
+    position.updatePageNum();
+    btnArrow.addEventListener('click', scrollPage);
+}, 66);
 
-export const scrollEnd = (() => {
-    let isScrolling;
-    return () => {
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-            position.updatePageNum();
-            btnArrow.addEventListener('click', scrollPage);
-        }, 66);
-    };
-})();
+export const touchmoveMobile = debounce(scrollCellMobile.getTouchEnd, 66);
 
 export const position = (() => {
     let pageNum = 0;
     const updatePageNum = () => {
         pageNum = Math.round(window.scrollY / window.innerHeight);
-        console.log(pageNum);
     };
     const restorePage = () => {
         const scrollY = pageNum * window.innerHeight;
@@ -204,6 +220,8 @@ export const position = (() => {
     return { updatePageNum, restorePage, toggleArrow };
 })();
 
+export const restorePage = debounce(position.restorePage, 66);
+
 const changeImg = () => {
     const provinceImgMap = {
         'Alberta': 'img-ab',
@@ -224,26 +242,18 @@ const changeImg = () => {
     aside.className = img;
 };
 
-export const wheelEnd = (() => {
-    let isScrolling;
-    return () => {
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-            changeImg()
-        }, 500);
-    };
-})();
+export const wheelEnd = debounce(changeImg, 500);
 
 export const preloadImg = (...urls) => {
     const toolDiv = document.createElement('div');
     toolDiv.className = 'd-none';
     toolDiv.setAttribute('title', '<div> for img preload as rel=preload && data-* && Image() not working well');
 
-    let html = '';
     urls.forEach(url => {
-        html += `<img src="${url}">`;
-    });
-    toolDiv.innerHTML = html;
+        const img = new Image();
+        img.src = url;
+        toolDiv.appendChild(img);
+    })
 
     document.body.appendChild(toolDiv);
 };

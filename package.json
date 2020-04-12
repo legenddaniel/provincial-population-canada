@@ -1,0 +1,30 @@
+{
+  "name": "provincial-population-canada",
+  "version": "1.0.0",
+  "description": "Canada Population Estimates",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legenddaniel/provincial-population-canada.git"
+  },
+  "keywords": [
+    "population",
+    "provincial",
+    "national",
+    "Canada",
+    "Statistics",
+    "Canada"
+  ],
+  "author": "legenddaniel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/legenddaniel/provincial-population-canada/issues"
+  },
+  "homepage": "https://github.com/legenddaniel/provincial-population-canada#readme",
+  "dependencies": {
+    "smoothscroll-polyfill": "^0.4.4"
+  }
+}
