@@ -9,6 +9,8 @@ export const btnGet1 = document.querySelector('#national .btn-txt');
 export const btnGet2 = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 
+const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
+
 const debounce = (fn, delay, immediate) => {
     let timer;
     return function() {
@@ -120,7 +122,7 @@ export const getProvince = () => {
 export const showResult1 = () => {
     const date = getValidDate(0);
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open("GET", '../data.json', true);
+    xhr.open("GET", 'data.json', true);
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
@@ -134,7 +136,7 @@ export const showResult2 = () => {
     const date = getValidDate(1);
     const province = getProvince();
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open("GET", '../data.json', true);
+    xhr.open("GET", 'data.json', true);
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
@@ -164,13 +166,13 @@ export const showResult2 = () => {
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
     const innerHeight = window.innerHeight;
-    try {
+    if (scrollBehavior) {
         window.scrollBy({
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
-        })
-    } catch (e) {
-        window.scrollBy(0, +`${direction}${innerHeight}`)
+        });
+    } else {
+        window.scrollBy(0, +`${direction}${innerHeight}`);
     };
     e.currentTarget.removeEventListener('click', scrollPage);
 };
