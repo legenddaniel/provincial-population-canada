@@ -171,6 +171,7 @@ export const scrollPage = e => {
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
         });
+        console.log('aaa');
     } else {
         window.scrollBy(0, +`${direction}${innerHeight}`);
     };
