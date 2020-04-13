@@ -55,6 +55,7 @@ export const scrollCell = e => {
     const deg = getRotateDeg();
     const newDeg = dY < 0 ? deg - 36 : deg + 36;
     // e.preventDefault();
+    e.stopPropagation();
     carousel.style.transform = `rotateX(${newDeg}deg)`;
 };
 
