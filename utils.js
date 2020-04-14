@@ -57,7 +57,7 @@ export const scrollCell = e => {
 
     carousel.style.transform = `rotateX(${newDeg}deg)`;
     // e.preventDefault();
-    e.stopPropagation();
+    // e.stopPropagation();
 };
 
 export const scrollCellMobile = (() => {
@@ -69,9 +69,9 @@ export const scrollCellMobile = (() => {
         const deg = getRotateDeg();
         const touchEnd = e.changedTouches[0];
         const newDeg = touchEnd.pageY > touchStart.pageY ? deg - 36 : deg + 36;
-        
+
         carousel.style.transform = `rotateX(${newDeg}deg)`;
-        e.stopPropagation();
+        // e.stopPropagation();
     };
     return { setTouchStart, getTouchEnd };
 })();
