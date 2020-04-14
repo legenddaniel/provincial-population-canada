@@ -13,14 +13,14 @@ const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
 
 const debounce = (fn, delay, immediate) => {
     let timer;
-    return function() {
+    return function () {
         const that = this;
         const args = arguments;
-        
+
         clearTimeout(timer);
-        
+
         if (immediate && !timer) fn.apply(that, args);
-        
+
         timer = setTimeout(() => {
             timer = null;
             fn.apply(that, args);
@@ -54,9 +54,10 @@ export const scrollCell = e => {
     const dY = e.deltaY;
     const deg = getRotateDeg();
     const newDeg = dY < 0 ? deg - 36 : deg + 36;
+
+    carousel.style.transform = `rotateX(${newDeg}deg)`;
     // e.preventDefault();
     e.stopPropagation();
-    carousel.style.transform = `rotateX(${newDeg}deg)`;
 };
 
 export const scrollCellMobile = (() => {
@@ -68,7 +69,9 @@ export const scrollCellMobile = (() => {
         const deg = getRotateDeg();
         const touchEnd = e.changedTouches[0];
         const newDeg = touchEnd.pageY > touchStart.pageY ? deg - 36 : deg + 36;
+        
         carousel.style.transform = `rotateX(${newDeg}deg)`;
+        e.stopPropagation();
     };
     return { setTouchStart, getTouchEnd };
 })();
