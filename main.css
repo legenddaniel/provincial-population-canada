@@ -34,7 +34,7 @@
     -webkit-box-align: center;
     align-items: center;
     height: 100vh;
-    min-height: -webkit-fill-available;
+    /* min-height: -webkit-fill-available; */
     overflow: hidden;
 }
 
@@ -401,8 +401,7 @@
 .txt-rainbow {
     background: -webkit-gradient(
         linear,
-        left top,
-        right top,
+        left top, right top,
         from(rgba(255, 210, 125, 0.8)),
         color-stop(rgba(255, 255, 128, 0.8)),
         color-stop(rgba(64, 128, 64, 0.8)),
