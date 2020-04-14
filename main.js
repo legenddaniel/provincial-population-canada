@@ -7,8 +7,8 @@ const imgs = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jp
 
 window.addEventListener('load', preloadImg(...imgs));
 window.addEventListener('scroll', scrollEnd);
-// window.addEventListener('scroll', e => e.preventDefault());
-// window.addEventListener('touchmove', e => e.preventDefault());
+window.addEventListener('scroll', e => e.preventDefault());
+window.addEventListener('touchmove', e => e.preventDefault());
 window.addEventListener('beforeunload', goTop);
 window.addEventListener('resize', restorePage);
 
