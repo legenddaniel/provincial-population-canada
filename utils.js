@@ -1,8 +1,9 @@
 // e.deltaY ios
 // find() includes() ie
-// scrollBy options ie edge-79
+// scrollBy options ie edge79-
 // scrollBy ie 11-
 // classList remove add ie10-
+// setProperty ie9-
 
 export const carousel = document.getElementsByClassName('carousel')[0];
 export const btnGet1 = document.querySelector('#national .btn-txt');
@@ -28,6 +29,15 @@ const debounce = (fn, delay, immediate) => {
     };
 };
 
+export const isMobile = () => {
+    const match = window.matchMedia || window.msMatchMedia;
+    if(match) {
+        const mq = match("(pointer:coarse)");
+        return mq.matches;
+    }
+    return false;
+};
+
 const getValidDate = i => {
     const date = document.getElementsByClassName('date')[i].value;
     const year = date.match(/^\d{4}-/);
@@ -45,6 +55,11 @@ const getRotateDeg = () => {
     const deg = +rotate.match(/-*\d+/)[0];
     return deg;
 };
+
+export const setSectionHeight = debounce(() => {
+    const vh = window.innerHeight / 100;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}, 66);
 
 export const goTop = () => {
     window.scrollTo(0, 0);
