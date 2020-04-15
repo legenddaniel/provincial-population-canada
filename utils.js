@@ -56,12 +56,10 @@ const getRotateDeg = () => {
     return deg;
 };
 
-export const setSectionHeight = () => {
-
-        const vh = window.innerHeight / 100;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    
-};
+export const setSectionHeight = debounce(() => {
+    const vh = window.innerHeight / 100;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}, 66);
 
 export const goTop = () => {
     window.scrollTo(0, 0);
