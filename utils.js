@@ -32,7 +32,7 @@ const debounce = (fn, delay, immediate) => {
 const isMobile = () => {
     const match = window.matchMedia || window.msMatchMedia;
     if (match) {
-        const mq = match("(pointer:coarse)");
+        const mq = match("(any-pointer:fine)");
         return mq.matches;
     }
     return false;
