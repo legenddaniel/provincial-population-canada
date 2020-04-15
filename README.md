@@ -12,4 +12,6 @@ Due to the normal concensus that larger screen should display more content, smal
 
 On Firefox the province images keep flickering despite preload and cache
 
+On Edge and Safari due to compatibility no smooth scroll
+
 <img src="img/qr-page.png">
