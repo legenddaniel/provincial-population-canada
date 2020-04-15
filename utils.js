@@ -29,9 +29,9 @@ const debounce = (fn, delay, immediate) => {
     };
 };
 
-export const isMobile = () => {
+const isMobile = () => {
     const match = window.matchMedia || window.msMatchMedia;
-    if(match) {
+    if (match) {
         const mq = match("(pointer:coarse)");
         return mq.matches;
     }
@@ -57,8 +57,10 @@ const getRotateDeg = () => {
 };
 
 export const setSectionHeight = debounce(() => {
-    const vh = window.innerHeight / 100;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    if (isMobile()) {
+        const vh = window.innerHeight / 100;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 }, 66);
 
 export const goTop = () => {

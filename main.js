@@ -1,4 +1,4 @@
-import { carousel, isMobile, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage} from './utils.js';
+import { carousel, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage} from './utils.js';
 // import smoothscroll from 'smoothscroll-polyfill';
  
 // smoothscroll.polyfill();
