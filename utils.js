@@ -30,6 +30,12 @@ const debounce = (fn, delay, immediate) => {
     };
 };
 
+const isSafari = () => {
+    const ua = navigator.userAgent;
+    const safari = (/Mac|iPhone|iPad/).test(ua);
+    return safari;
+}
+
 const getValidDate = i => {
     const date = document.getElementsByClassName('date')[i].value;
     const year = date.match(/^\d{4}-/);
@@ -273,8 +279,6 @@ export const preloadImg = (...urls) => {
 };
 
 export const safariRestorePage = () => {
-    const ua = navigator.userAgent;
-    const safari = ua.match(/Mac|iPhone|iPad/);
-    if (safari) restorePage();
+    if (isSafari()) restorePage();
 };
 
