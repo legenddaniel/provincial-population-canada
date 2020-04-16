@@ -29,15 +29,6 @@ const debounce = (fn, delay, immediate) => {
     };
 };
 
-const isMobile = () => {
-    const match = window.matchMedia || window.msMatchMedia;
-    if (match) {
-        const touchScreen = match(("(pointer:coarse)"));
-        return touchScreen.matches;
-    }
-    return false;
-};
-
 const getValidDate = i => {
     const date = document.getElementsByClassName('date')[i].value;
     const year = date.match(/^\d{4}-/);
