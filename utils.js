@@ -32,8 +32,8 @@ const debounce = (fn, delay, immediate) => {
 const isMobile = () => {
     const match = window.matchMedia || window.msMatchMedia;
     if (match) {
-        const mouse = match("(any-pointer:fine)");
-        return !mouse.matches;
+        const touchScreen = match(("(pointer:coarse)"));
+        return touchScreen.matches;
     }
     return false;
 };
