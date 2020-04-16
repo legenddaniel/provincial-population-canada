@@ -191,7 +191,7 @@ export const scrollPage = e => {
         document.querySelector('h1 .txt-em').classList.remove('txt-em');
     } else {
         window.scrollBy(0, +`${direction}${innerHeight}`);
-        document.querySelector('h1 .txt-em').classList.remove('txt-em').add('txt-md');
+        document.querySelector('h1 .txt-em').classList.add('txt-red');
     };
     e.currentTarget.removeEventListener('click', scrollPage);
 };
