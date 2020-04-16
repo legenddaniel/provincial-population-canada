@@ -193,7 +193,7 @@ export const scrollPage = e => {
     };
     e.currentTarget.removeEventListener('click', scrollPage);
 
-    document.querySelector('h1 .txt-em').className = 'txt-red';
+    document.querySelector('h1 .txt-em').classList.add('txt-red');
     btnArrow.addEventListener('click', () => {
         document.querySelector('h1').className = 'txt-xl';
     });
