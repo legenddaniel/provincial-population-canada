@@ -261,7 +261,7 @@ export const wheelEnd = debounce(changeImg, 500);
 export const preloadImg = (...urls) => {
     const toolDiv = document.createElement('div');
     toolDiv.className = 'd-none';
-    toolDiv.setAttribute('title', '<div> for img preload as rel=preload && data-* && Image() not working well');
+    toolDiv.setAttribute('title', '<div> for img preload as rel=preload && data-* not working well');
 
     urls.forEach(url => {
         const img = new Image();
@@ -270,5 +270,11 @@ export const preloadImg = (...urls) => {
     })
 
     document.body.appendChild(toolDiv);
+};
+
+export const safariRestorePage = () => {
+    const ua = navigator.userAgent;
+    const safari = ua.match(/Mac|iPhone|iPad/);
+    if (safari) restorePage();
 };
 

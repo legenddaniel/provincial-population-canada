@@ -1,4 +1,4 @@
-import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage } from './utils.js';
+import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage } from './utils.js';
 // import smoothscroll from 'smoothscroll-polyfill';
 
 // smoothscroll.polyfill();
@@ -24,8 +24,8 @@ carousel.addEventListener('touchmove', touchmoveMobile);
 carousel.addEventListener('touchend', wheelEnd);
 
 for (let widget of date) {
-    widget.addEventListener('focus', restorePage);
-    widget.addEventListener('blur', restorePage);
+    widget.addEventListener('focus', safariRestorePage);
+    widget.addEventListener('blur', safariRestorePage);
 };
 
 btnGet1.addEventListener('click', showResult1);
