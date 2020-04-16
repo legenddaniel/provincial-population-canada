@@ -182,16 +182,16 @@ export const showResult2 = () => {
 
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
+    if (direction === '+') document.querySelector('h1 .txt-em').classList.remove('txt-em');
     const innerHeight = window.innerHeight;
+    if (innerHeight) document.querySelector('h1 .txt-em').classList.add('txt-red');
     if (scrollBehavior) {
         window.scrollBy({
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
         });
-        document.querySelector('h1 .txt-em').classList.remove('txt-em');
     } else {
         window.scrollBy(0, +`${direction}${innerHeight}`);
-        document.querySelector('h1 .txt-em').classList.add('txt-red');
     };
     e.currentTarget.removeEventListener('click', scrollPage);
 };
