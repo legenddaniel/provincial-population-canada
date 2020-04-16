@@ -32,8 +32,8 @@ const debounce = (fn, delay, immediate) => {
 const isMobile = () => {
     const match = window.matchMedia || window.msMatchMedia;
     if (match) {
-        const mq = !match("(any-pointer:fine)");
-        return mq.matches;
+        const mouse = match("(any-pointer:fine)");
+        return !mouse.matches;
     }
     return false;
 };
@@ -192,7 +192,6 @@ export const scrollPage = e => {
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
         });
-        console.log('aaa');
     } else {
         window.scrollBy(0, +`${direction}${innerHeight}`);
     };
@@ -214,6 +213,7 @@ export const position = (() => {
     const restorePage = () => {
         const scrollY = pageNum * window.innerHeight;
         window.scrollTo(0, scrollY);
+        console.log('restored');
     };
     const toggleArrow = e => {
         const toggle = arrowAct => {
