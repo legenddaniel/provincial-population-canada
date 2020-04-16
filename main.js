@@ -7,8 +7,9 @@ const imgs = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jp
 
 window.addEventListener('load', preloadImg(...imgs));
 window.addEventListener('scroll', scrollEnd);
-window.addEventListener('beforeunload', goTop);
-window.addEventListener('pageshow', goTop);
+// window.addEventListener('beforeunload', goTop);
+// window.addEventListener('pageshow', goTop);
+window.addEventListener('load', goTop);
 // window.addEventListener('unload', goTop);
 window.addEventListener('resize', restorePage);
 window.addEventListener('load', setSectionHeight);
