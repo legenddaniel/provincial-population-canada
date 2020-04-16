@@ -188,8 +188,10 @@ export const scrollPage = e => {
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
         });
+        document.querySelector('h1 .txt-em').classList.remove('txt-em');
     } else {
         window.scrollBy(0, +`${direction}${innerHeight}`);
+        document.querySelector('h1 .txt-em').classList.remove('txt-em').add('txt-md');
     };
     e.currentTarget.removeEventListener('click', scrollPage);
 };
