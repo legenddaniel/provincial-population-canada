@@ -192,6 +192,11 @@ export const scrollPage = e => {
         window.scrollBy(0, +`${direction}${innerHeight}`);
     };
     e.currentTarget.removeEventListener('click', scrollPage);
+
+    document.querySelector('h1 .txt-em').className = 'txt-red';
+    btnArrow.addEventListener('click', () => {
+        document.querySelector('h1').className = 'txt-xl';
+    });
 };
 
 export const scrollEnd = debounce(() => {
@@ -236,6 +241,11 @@ export const position = (() => {
         const arrow = pageArrowMap[pageNum];
 
         pageNum in pageArrowMap && e.target === target(Object.keys(arrow)[0]) && Object.values(arrow)[0]();
+
+        document.querySelector('h1 .txt-em').classList.remove('txt-em');
+        btnArrow.addEventListener('click', () => {
+            document.querySelector('h1').className = 'txt-blue';
+        });
     };
     return { updatePageNum, restorePage, toggleArrow };
 })();

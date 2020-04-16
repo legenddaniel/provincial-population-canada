@@ -366,6 +366,13 @@
 .bg-canada {
     z-index: -1;
 }
+
+.txt-red {
+    color: red;
+}
+.txt-blue {
+    color: blue;
+}
 .bg-canada::before {
     content: "";
     position: fixed;
