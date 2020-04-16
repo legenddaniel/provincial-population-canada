@@ -182,7 +182,7 @@ export const showResult2 = () => {
 
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
-    if (direction === '+') document.querySelector('h1').classList.remove('txt-em');
+    if (direction === '+') document.querySelector('h1 span').classList.remove('txt-em');
     const innerHeight = window.innerHeight;
     if (innerHeight) document.querySelector('h1').classList.add('txt-red');
     if (scrollBehavior) {
