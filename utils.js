@@ -9,6 +9,7 @@ export const carousel = document.getElementsByClassName('carousel')[0];
 export const btnGet1 = document.querySelector('#national .btn-txt');
 export const btnGet2 = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
+export const date = document.getElementsByClassName('date');
 
 const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
 
