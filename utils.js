@@ -56,7 +56,7 @@ const getRotateDeg = () => {
 
 export const setSectionHeight = debounce(() => {
     const match = window.matchMedia || window.msmatch;
-    const mobile = match("pointer:coarse").matches;
+    const mobile = match("(pointer:coarse)").matches;
     if (mobile) {
         const vh = window.innerHeight / 100;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -203,6 +203,7 @@ export const scrollPage = e => {
 export const scrollEnd = debounce(() => {
     position.updatePageNum();
     btnArrow.addEventListener('click', scrollPage);
+    console.log('scrollend');
 }, 66);
 
 export const touchmoveMobile = debounce(scrollCellMobile.getTouchEnd, 66);
