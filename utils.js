@@ -206,13 +206,13 @@ export const touchmoveMobile = debounce(scrollCellMobile.getTouchEnd, 66);
 export const position = (() => {
     let pageNum = 0;
     const updatePageNum = () => {
-        pageNum = Math.round(window.scrollY / window.innerHeight);
-        console.log('pageNum=' + pageNum);
+        pageNum = Math.round(window.pageYOffset / window.innerHeight);
+        console.log('pageNum=' + pageNum + 'window.scrollY=' + window.scrollY);
     };
     const restorePage = () => {
         const scrollY = pageNum * window.innerHeight;
+        console.log(window.scrollY + '!=' + scrollY + '=' + pageNum + '*' + window.innerHeight);
         window.scrollTo(0, scrollY);
-        console.log(window.scrollY + '=' + pageNum + '*' + window.innerHeight);
     };
     const toggleArrow = e => {
         const toggle = arrowAct => {

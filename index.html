@@ -15,7 +15,7 @@
 
 <!-- 键盘访问时滚动位置不对 -->
 
-<!-- 横竖屏切换时页码错误，原因疑似为orientationchange会触发scroll时间里的updatepagenum-->
+<!-- 横竖屏切换时页码错误，原因疑似为100vh方案与restorepage冲突，考虑只对有100vh问题的设备执行-->
 
 <!-- edge省份显示方案：除当前以外其余字体透明并不可选定 -->
 
@@ -55,17 +55,6 @@
             </div>
         </section>
         <section class="section p-rel" id="provincial">
-            <!-- <div style="width: 0; height: 0;">
-                <img src="img/bc.jpg" style="width: 0; height: 0;">
-                <img src="img/mn.jpg" style="width: 0; height: 0;">
-                <img src="img/nb.jpg" style="width: 0; height: 0;">
-                <img src="img/nl.jpg" style="width: 0; height: 0;">
-                <img src="img/ns.jpg" style="width: 0; height: 0;">
-                <img src="img/on.jpg" style="width: 0; height: 0;">
-                <img src="img/pe.jpg" style="width: 0; height: 0;">
-                <img src="img/qc.jpg" style="width: 0; height: 0;">
-                <img src="img/sk.jpg" style="width: 0; height: 0;">
-            </div> -->
             <h2 class="mt-8">Or in the <br><span class="txt-em">province </span></h2>
             <div class="flex flex-column justify-center align-center h-db">
                 <div class="stage h-50p">
