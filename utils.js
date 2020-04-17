@@ -55,8 +55,7 @@ const getRotateDeg = () => {
 };
 
 export const setSectionHeight = debounce(() => {
-    const match = window.matchMedia || window.msmatch;
-    const mobile = match("(pointer:coarse)").matches;
+    const mobile = window.matchMedia("(pointer:coarse)").matches;
     if (mobile) {
         const vh = window.innerHeight / 100;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
