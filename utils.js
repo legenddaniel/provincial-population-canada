@@ -185,7 +185,7 @@ export const scrollPage = e => {
     const innerHeight = window.innerHeight;
     const ua = navigator.userAgent;
     const isMFirefox = (/Android/).test(ua) && (/Firefox/).test(ua);
-    if (scrollBehavior && isMFirefox) {
+    if (scrollBehavior && !isMFirefox) {
         window.scrollBy({
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
