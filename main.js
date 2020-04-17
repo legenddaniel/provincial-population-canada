@@ -10,8 +10,10 @@ window.addEventListener('load', showArrowTopSafari);
 window.addEventListener('scroll', scrollEnd);
 window.addEventListener('beforeunload', goTop);
 window.addEventListener('resize', restorePage);
+window.addEventListener('orientationchange', restorePage);
 window.addEventListener('load', setSectionHeight);
 window.addEventListener('resize', setSectionHeight);
+
 
 window.addEventListener('scroll', e => e.preventDefault());
 window.addEventListener('touchmove', e => e.preventDefault());
