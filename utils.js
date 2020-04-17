@@ -55,8 +55,12 @@ const getRotateDeg = () => {
 };
 
 export const setSectionHeight = debounce(() => {
-    const vh = window.innerHeight / 100;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    const match = window.matchMedia || window.msmatch;
+    const mobile = !match("(hover)").matches;
+    if (mobile) {
+        const vh = window.innerHeight / 100;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 }, 66);
 
 export const goTop = () => {
