@@ -10,8 +10,12 @@ No sprites due to the complicated calculation of the background-position for cal
 
 Due to the normal concensus that larger screen should display more content, small font size issue on some models of mobile phones would not be fixed
 
-On Firefox the province images keep flickering despite preload and cache
+Bugs:
 
-On Edge and Safari due to compatibility no smooth scroll
+    On Safari unload / pagehide not triggered
+
+    On Firefox the province images keep flickering despite preload and cache
+
+    On Edge, Safari and mobile Firefox due to compatibility no smooth scroll
 
 <img src="img/qr-page.png">

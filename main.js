@@ -1,4 +1,4 @@
-import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage } from './utils.js';
+import { carousel, date, setSectionHeight, goTop, showArrowTopSafari,scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage } from './utils.js';
 // import smoothscroll from 'smoothscroll-polyfill';
 
 // smoothscroll.polyfill();
@@ -6,9 +6,9 @@ import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGe
 const imgs = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jpg', 'img/on.jpg', 'img/pe.jpg', 'img/qc.jpg', 'img/sk.jpg'];
 
 window.addEventListener('load', preloadImg(...imgs));
+window.addEventListener('load', showArrowTopSafari);
 window.addEventListener('scroll', scrollEnd);
 window.addEventListener('beforeunload', goTop);
-// window.addEventListener('unload', goTop);
 window.addEventListener('resize', restorePage);
 window.addEventListener('load', setSectionHeight);
 window.addEventListener('resize', setSectionHeight);

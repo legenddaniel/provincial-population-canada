@@ -63,6 +63,10 @@ export const goTop = () => {
     window.scrollTo(0, 0);
 };
 
+export const showArrowTopSafari = () => {
+    if (isSafari()) document.getElementsByClassName('arrow-top')[0].classList.remove('d-none');
+};
+
 export const scrollCell = e => {
     const dY = e.deltaY;
     const deg = getRotateDeg();
@@ -206,12 +210,11 @@ export const touchmoveMobile = debounce(scrollCellMobile.getTouchEnd, 66);
 export const position = (() => {
     let pageNum = 0;
     const updatePageNum = () => {
-        pageNum = Math.round(window.scrollY / window.innerHeight);
+        pageNum = Math.round(window.pageYOffset / window.innerHeight);
     };
     const restorePage = () => {
         const scrollY = pageNum * window.innerHeight;
         window.scrollTo(0, scrollY);
-        console.log('restored');
     };
     const toggleArrow = e => {
         const toggle = arrowAct => {
