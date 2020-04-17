@@ -182,10 +182,10 @@ export const showResult2 = () => {
 
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
-    if (direction === '+') document.querySelector('h1 span').classList.remove('txt-em');
     const innerHeight = window.innerHeight;
-    if (innerHeight) document.querySelector('h1').classList.add('txt-red');
-    if (scrollBehavior) {
+    const ua = navigator.userAgent;
+    const isMFirefox = (/Android/).test(ua) && (/Firefox/).test(ua);
+    if (scrollBehavior && isMFirefox) {
         window.scrollBy({
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
