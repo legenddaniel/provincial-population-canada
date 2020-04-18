@@ -34,6 +34,7 @@
     -webkit-box-align: center;
     align-items: center;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     /* min-height: -webkit-fill-available; */
     overflow: hidden;
 }
@@ -443,7 +444,7 @@
 /* Other ↑ */
 /* Module ↑ */
 
-@media (hover: none), (any-pointer: coarse) {
+@media screen and (hover: hover), screen and (pointer: coarse) {
     .section {
         height: calc(var(--vh, 1vh) * 100);
         color: #000;
