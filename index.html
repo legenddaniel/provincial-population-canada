@@ -16,10 +16,13 @@
 <!-- 键盘访问时滚动位置不对 -->
 
 <!-- 原因：restorePage和setSectionHeight冲突 -->
-<!-- 横竖屏切换时页码错误，考虑resize也gotop-->
-<!-- 方案：点击箭头时获取当前section，根据上下箭头滚动到上下一个section，这个方法需要resize如何保持滚动位置 -->
+<!-- 横竖屏切换时页码错误，方案：移动端orientationchange后gotop，但是注意与restorepage是否冲突 -->
 
 <!-- edge省份显示方案：除当前以外其余字体透明并不可选定 -->
+
+<!-- 安卓chrome hover和pointer无效 -->
+<!-- 尝试(hover: none) and (any-hover: hover) -->
+<!-- 或者反其道，设置hover: hover检测android chrome -->
 
 <!-- ios beforeunload scrolltop失效 -->
 <!-- ios双击屏幕可滚动 -->
