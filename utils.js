@@ -54,12 +54,15 @@ const getRotateDeg = () => {
     return deg;
 };
 
-export const setHeight = e => {
-    if (e.matches) {
+export const setSectionHeight = debounce(() => {
+    const mobile = window.matchMedia("(pointer:coarse)").matches;
+    if (mobile) {
         const vh = window.innerHeight / 100;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+    } else {
+        document.documentElement.style.removeProperty('--vh');
     }
-};
+}, 66);
 
 export const goTop = () => {
     window.scrollTo(0, 0);
