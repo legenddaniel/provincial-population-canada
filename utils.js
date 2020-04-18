@@ -59,7 +59,7 @@ export const setSectionHeight = debounce(() => {
     const vh = window.innerHeight / 100;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     // if (!mobile) {
-        document.documentElement.removeAttribute('style');
+    //     document.documentElement.removeAttribute('style');
     // }
 }, 66);
 
