@@ -443,9 +443,8 @@
 /* Other ↑ */
 /* Module ↑ */
 
-@media (any-hover: none), (any-pointer: coarse) {
+@media (hover: none), (not(any-pointer: coarse)) {
     .section {
-        height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
         color: #000;
     }
