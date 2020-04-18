@@ -58,9 +58,9 @@ export const setSectionHeight = debounce(() => {
     const mobile = window.matchMedia("(pointer:coarse)").matches;
     const vh = window.innerHeight / 100;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    if (!mobile) {
+    // if (!mobile) {
         document.documentElement.removeAttribute('style');
-    }
+    // }
 }, 66);
 
 export const goTop = () => {
