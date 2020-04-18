@@ -8,7 +8,6 @@ const imgs = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jp
 window.addEventListener('load', preloadImg(...imgs));
 window.addEventListener('scroll', scrollEnd);
 window.addEventListener('beforeunload', goTop);
-window.addEventListener('pagehide', goTop);
 window.addEventListener('orientationchange', goTop);
 window.addEventListener('resize', restorePage);
 // window.addEventListener('orientationchange', restorePage);
