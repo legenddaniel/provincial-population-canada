@@ -34,7 +34,6 @@
     -webkit-box-align: center;
     align-items: center;
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
     /* min-height: -webkit-fill-available; */
     overflow: hidden;
 }
@@ -443,6 +442,13 @@
 
 /* Other ↑ */
 /* Module ↑ */
+
+@media (hover: none) and (pointer: coarse) {
+    .section {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+    }
+}
 
 @media screen and (max-width: 768px) {
     .h-sg {
