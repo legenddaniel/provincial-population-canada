@@ -68,6 +68,22 @@ export const setSectionHeight = debounce(() => {
 
 export const goTop = () => {
     window.scrollTo(0, 0);
+    console.log('gotop');
+    const toggleArrow = (arrows, method) => {
+        const arrow = document.getElementsByClassName(arrows)[0].classList;
+        if (method === 'hide') {
+            arrow.add('d-none');
+            console.log('hide ' + arrows);
+        }
+        if (method === 'show') {
+            arrow.remove('d-none');
+            console.log('show ' + arrows);
+        }
+    };
+    toggleArrow('arrow-top', 'hide');
+    toggleArrow('arrow-bot', 'show');
+    // document.getElementsByClassName('arrow-top')[0].classList.add('d-none');
+    // document.getElementsByClassName('arrow-bot')[0].classList.remove('d-none');
 };
 
 export const scrollCell = e => {
