@@ -56,10 +56,12 @@ const getRotateDeg = () => {
 };
 
 export const setSectionHeight = debounce(() => {
-    const mobile = window.matchMedia("(hover: none)").matches;
+    const match = mq => matchMedia(mq).matches;
+    const mobile = match("(hover: none)") || match("(pointer: coarse)");
     const vh = window.innerHeight / 100;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-    if (!mobile) {
+    if (mobile) {
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    } else {
         document.documentElement.removeAttribute('style');
     }
 }, 66);
