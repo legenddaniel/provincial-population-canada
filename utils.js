@@ -4,6 +4,7 @@
 // scrollBy ie 11-
 // classList remove add ie10-
 // setProperty ie9-
+// hover: none pointer: coarse ios9-
 
 export const carousel = document.getElementsByClassName('carousel')[0];
 export const btnGet1 = document.querySelector('#national .btn-txt');
