@@ -28,6 +28,8 @@ Bugs:
 
     1. On Firefox the province images keep flickering despite preload and cache
 
-    1. On Edge the slot machine widget (province selector) might have a flicker due to unknown reason. Partially fixed to make it look better.
+    1. On Android the date picker indicator cannot be hidden.
+
+    1. On Edge the slot machine widget (province selector) might have a flicker due to unknown reason. Partially fixed by a forced repaint when rolling the widget to make it look better.
 
 <img src="img/qr-page.png">
