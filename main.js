@@ -1,4 +1,4 @@
-import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, msBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage, preventDefault } from './utils.js';
+import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, msCellDisplayBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage, preventDefault } from './utils.js';
 // import smoothscroll from 'smoothscroll-polyfill';
 
 // smoothscroll.polyfill();
@@ -8,7 +8,7 @@ const imgs = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jp
 const eventConfig = [
     {
         target: window,
-        types: [{
+        events: [{
             name: 'load',
             handlers: [preloadImg(...imgs), setSectionHeight]
         }, {
@@ -27,6 +27,27 @@ const eventConfig = [
             name: 'resize',
             handlers: [restorePage, setSectionHeight]
         }]
+    }, {
+        target: carousel,
+        events: [{
+            name: 'wheel',
+            handlers: [scrollCell, msCellDisplayBugFix, wheelEnd]
+        }, {
+            name: 'touchstart',
+            handlers: [scrollCellMobile.setTouchStart]
+        }, {
+            name: 'touchmove',
+            handlers: [touchmoveMobile]
+        }, {
+            name: 'touchend',
+            handlers: [wheelEnd]
+        }]
+    }, {
+        target: btnArrow,
+        events: [{
+            name: 'click',
+            handlers: [scrollPage, position.toggleArrow]
+        }]
     }
 ];
 
@@ -35,9 +56,9 @@ const on = function (currentTarget, type, handler) {
 };
 
 eventConfig.forEach(currentTarget => {
-    currentTarget.types.forEach(type => {
-        type.handlers.forEach(handler => {
-            on(currentTarget.target, type.name, handler);
+    currentTarget.events.forEach(e => {
+        e.handlers.forEach(handler => {
+            on(currentTarget.target, e.name, handler);
         });
     });
 });
@@ -54,13 +75,13 @@ eventConfig.forEach(currentTarget => {
 // window.addEventListener('scroll', preventDefault);
 // window.addEventListener('touchmove', preventDefault);
 
-carousel.addEventListener('wheel', scrollCell);
-carousel.addEventListener('wheel', msBugFix);
-// carousel.addEventListener('wheel', getProvince);
-carousel.addEventListener('wheel', wheelEnd);
-carousel.addEventListener('touchstart', scrollCellMobile.setTouchStart);
-carousel.addEventListener('touchmove', touchmoveMobile);
-carousel.addEventListener('touchend', wheelEnd);
+// carousel.addEventListener('wheel', scrollCell);
+// carousel.addEventListener('wheel', msCellDisplayBugFix);
+// // carousel.addEventListener('wheel', getProvince);
+// carousel.addEventListener('wheel', wheelEnd);
+// carousel.addEventListener('touchstart', scrollCellMobile.setTouchStart);
+// carousel.addEventListener('touchmove', touchmoveMobile);
+// carousel.addEventListener('touchend', wheelEnd);
 
 for (let widget of date) {
     widget.addEventListener('focus', safariRestorePage);
@@ -70,7 +91,7 @@ for (let widget of date) {
 btnGet1.addEventListener('click', showResult1);
 btnGet2.addEventListener('click', showResult2);
 
-btnArrow.addEventListener('click', scrollPage);
-btnArrow.addEventListener('click', position.toggleArrow);
+// btnArrow.addEventListener('click', scrollPage);
+// btnArrow.addEventListener('click', position.toggleArrow);
 
 

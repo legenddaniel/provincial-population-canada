@@ -12,6 +12,38 @@ export const btnGet2 = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 export const date = document.getElementsByClassName('date');
 
+const provinceConfig = [{
+    name: 'Alberta',
+    cellRotateDeg: [0]
+}, {
+    name: 'British Columbia',
+    cellRotateDeg: [36, -324]
+}, {
+    name: 'Manitoba',
+    cellRotateDeg: [72, -288]
+}, {
+    name: 'New Brunswick',
+    cellRotateDeg: [108, -252]
+}, {
+    name: 'NewFoundland And Labrador',
+    cellRotateDeg: [144, -216]
+}, {
+    name: 'Nova Scotia',
+    cellRotateDeg: [180, -180]
+}, {
+    name: 'Ontario',
+    cellRotateDeg: [216, -144]
+}, {
+    name: 'Prince Edward Island',
+    cellRotateDeg: [252, -108]
+}, {
+    name: 'Quebec',
+    cellRotateDeg: [288, -72]
+}, {
+    name: 'Saskatchewan',
+    cellRotateDeg: [324, -36]
+}];
+
 const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
 
 const debounce = (fn, delay, immediate) => {
@@ -115,49 +147,56 @@ export const scrollCellMobile = (() => {
 })();
 
 export const getProvince = () => {
-    const deg = getRotateDeg();
-    let province;
-    switch (deg % 360) {
-        case 36:
-        case -324:
-            province = "British Columbia";
-            break;
-        case 72:
-        case -288:
-            province = "Manitoba";
-            break;
-        case 108:
-        case -252:
-            province = "New Brunswick";
-            break;
-        case 144:
-        case -216:
-            province = "Newfoundland And Labrador";
-            break;
-        case 180:
-        case -180:
-            province = "Nova Scotia";
-            break;
-        case 216:
-        case -144:
-            province = "Ontario";
-            break;
-        case 252:
-        case -108:
-            province = "Prince Edward Island";
-            break;
-        case 288:
-        case -72:
-            province = "Quebec";
-            break;
-        case 324:
-        case -36:
-            province = "Saskatchewan";
-            break;
-        default:
-            province = "Alberta";
-            break;
-    }
+    const deg = getRotateDeg() % 360;
+    const province = (() => {
+        for (let province of provinceConfig) {
+            if (province.cellRotateDeg.includes(deg)) {
+                return province.name;
+            }
+        }
+    })();
+    // let province;
+    // switch (deg % 360) {
+    //     case 36:
+    //     case -324:
+    //         province = "British Columbia";
+    //         break;
+    //     case 72:
+    //     case -288:
+    //         province = "Manitoba";
+    //         break;
+    //     case 108:
+    //     case -252:
+    //         province = "New Brunswick";
+    //         break;
+    //     case 144:
+    //     case -216:
+    //         province = "Newfoundland And Labrador";
+    //         break;
+    //     case 180:
+    //     case -180:
+    //         province = "Nova Scotia";
+    //         break;
+    //     case 216:
+    //     case -144:
+    //         province = "Ontario";
+    //         break;
+    //     case 252:
+    //     case -108:
+    //         province = "Prince Edward Island";
+    //         break;
+    //     case 288:
+    //     case -72:
+    //         province = "Quebec";
+    //         break;
+    //     case 324:
+    //     case -36:
+    //         province = "Saskatchewan";
+    //         break;
+    //     default:
+    //         province = "Alberta";
+    //         break;
+    // }
     return province;
 };
 
@@ -291,7 +330,7 @@ const changeImg = () => {
     aside.className = img;
 };
 
-export const msBugFix = (setOverflowX = true) => {
+export const msCellDisplayBugFix = (setOverflowX = true) => {
     const ms = (/Edge/).test(navigator.userAgent);
     if (ms && setOverflowX) {
         document.body.style.overflowX = 'visible';
@@ -302,7 +341,7 @@ export const msBugFix = (setOverflowX = true) => {
 
 export const wheelEnd = debounce(() => {
     changeImg();
-    msBugFix(false);
+    msCellDisplayBugFix(false);
 }, 500);
 
 export const preloadImg = (...urls) => {
