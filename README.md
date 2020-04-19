@@ -14,14 +14,20 @@ Due to the layout setting, keyboard navigation is cancelled. Use pointers to rea
 
 Due to a solution conflict, now the page will go back to top after resize, orientation change and refresh.
 
+On Edge, Safari and mobile Firefox due to compatibility no smooth scroll
+
 Bugs:
 
-    On Safari unload / pagehide not triggered
+    1. On Safari unload / pagehide event not triggered.
 
-    On Safari 
+    1. On Safari the address/menu bar are counted as window.innerHeight leading to a layout mess-up.
 
-    On Firefox the province images keep flickering despite preload and cache
+    1. On Safari when changing orientation the layout might be messed up,
+        try refreshing and then use full screen or portrait mode,
+        or double tap the page to restore to normal.
 
-    On Edge, Safari and mobile Firefox due to compatibility no smooth scroll
+    1. On Firefox the province images keep flickering despite preload and cache
+
+    1. On Edge the slot machine widget (province selector) might have a flicker due to unknown reason. Partially fixed to make it look better.
 
 <img src="img/qr-page.png">

@@ -93,6 +93,7 @@ export const scrollCell = e => {
     const newDeg = dY < 0 ? deg - 36 : deg + 36;
 
     carousel.style.transform = `rotateX(${newDeg}deg)`;
+
     // e.preventDefault();
     // e.stopPropagation();
 };
@@ -290,7 +291,19 @@ const changeImg = () => {
     aside.className = img;
 };
 
-export const wheelEnd = debounce(changeImg, 500);
+export const msBugFix = (setOverflowX = true) => {
+    const ms = (/Edge/).test(navigator.userAgent);
+    if (ms && setOverflowX) {
+        document.body.style.overflowX = 'visible';
+        return;
+    }
+    document.body.removeAttribute('style');
+};
+
+export const wheelEnd = debounce(() => {
+    changeImg();
+    msBugFix(false);
+}, 500);
 
 export const preloadImg = (...urls) => {
     const toolDiv = document.createElement('div');
