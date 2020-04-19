@@ -1,23 +1,58 @@
-import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, msBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage } from './utils.js';
+import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, msBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage, preventDefault } from './utils.js';
 // import smoothscroll from 'smoothscroll-polyfill';
 
 // smoothscroll.polyfill();
 
 const imgs = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jpg', 'img/on.jpg', 'img/pe.jpg', 'img/qc.jpg', 'img/sk.jpg'];
 
-window.addEventListener('load', preloadImg(...imgs));
-window.addEventListener('scroll', scrollEnd);
-window.addEventListener('beforeunload', goTop);
-window.addEventListener('orientationchange', goTop);
-window.addEventListener('resize', restorePage);
+const eventConfig = [
+    {
+        target: window,
+        types: [{
+            name: 'load',
+            handlers: [preloadImg(...imgs), setSectionHeight]
+        }, {
+            name: 'beforeunload',
+            handlers: [goTop]
+        }, {
+            name: 'scroll',
+            handlers: [scrollEnd, preventDefault]
+        }, {
+            name: 'touchmove',
+            handlers: [preventDefault]
+        }, {
+            name: 'orientationchange',
+            handlers: [goTop]
+        }, {
+            name: 'resize',
+            handlers: [restorePage, setSectionHeight]
+        }]
+    }
+];
+
+const on = function (currentTarget, type, handler) {
+    currentTarget.addEventListener(type, handler);
+};
+
+eventConfig.forEach(currentTarget => {
+    currentTarget.types.forEach(type => {
+        type.handlers.forEach(handler => {
+            on(currentTarget.target, type.name, handler);
+        });
+    });
+});
+
+// window.addEventListener('load', preloadImg(...imgs));
+// window.addEventListener('scroll', scrollEnd);
+// window.addEventListener('beforeunload', goTop);
+// window.addEventListener('orientationchange', goTop);
+// window.addEventListener('resize', restorePage);
 // window.addEventListener('orientationchange', restorePage);
-window.addEventListener('load', setSectionHeight);
-window.addEventListener('resize', setSectionHeight);
+// window.addEventListener('load', setSectionHeight);
+// window.addEventListener('resize', setSectionHeight);
 // window.addEventListener('orientationchange', setSectionHeight);
-
-
-window.addEventListener('scroll', e => e.preventDefault());
-window.addEventListener('touchmove', e => e.preventDefault());
+// window.addEventListener('scroll', preventDefault);
+// window.addEventListener('touchmove', preventDefault);
 
 carousel.addEventListener('wheel', scrollCell);
 carousel.addEventListener('wheel', msBugFix);

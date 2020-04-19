@@ -317,9 +317,14 @@ export const preloadImg = (...urls) => {
     })
 
     document.body.appendChild(toolDiv);
+    console.log('img preloaded');
 };
 
 export const safariRestorePage = () => {
     if (isSafari()) restorePage();
+};
+
+export const preventDefault = e => {
+    e.preventDefault();
 };
 
