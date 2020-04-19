@@ -130,12 +130,11 @@
     white-space: nowrap;
 }
 
-.date {
-    color: inherit;
-}
 .date::-webkit-inner-spin-button,
 .date::-webkit-calendar-picker-indicator {
     display: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .img-ab,
@@ -418,7 +417,8 @@
 .txt-rainbow {
     background: -webkit-gradient(
         linear,
-        left top, right top,
+        left top,
+        right top,
         from(rgba(255, 210, 125, 0.8)),
         color-stop(rgba(255, 255, 128, 0.8)),
         color-stop(rgba(64, 128, 64, 0.8)),
