@@ -130,6 +130,9 @@
     white-space: nowrap;
 }
 
+.date {
+    color: inherit;
+}
 .date::-webkit-inner-spin-button,
 .date::-webkit-calendar-picker-indicator {
     display: none;
