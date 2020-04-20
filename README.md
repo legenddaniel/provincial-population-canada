@@ -1,5 +1,8 @@
 # Provincial Population Data
 
+This statistics was done at Jan, Apr, Jul, Oct every year from 1946 to 2015.
+The provincial statistics starts from 1951-07-01.
+
 Bootstrap-style OOCSS
 
 3D Transform

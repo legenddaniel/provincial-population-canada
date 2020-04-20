@@ -12,36 +12,57 @@ export const btnGet2 = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 export const date = document.getElementsByClassName('date');
 
+const config = {
+    'Alberta': {
+        cellRotateDeg: [0],
+        jsonIndex: 9
+    },
+    'British Colombia': {
+        cellRotateDeg: [36, -324],
+        jsonIndex: 10
+    }
+}
+
 const provinceConfig = [{
     name: 'Alberta',
-    cellRotateDeg: [0]
+    cellRotateDeg: [0],
+    jsonIndex: 9
 }, {
     name: 'British Columbia',
-    cellRotateDeg: [36, -324]
+    cellRotateDeg: [36, -324],
+    jsonIndex: 10
 }, {
     name: 'Manitoba',
-    cellRotateDeg: [72, -288]
+    cellRotateDeg: [72, -288],
+    jsonIndex: 12
 }, {
     name: 'New Brunswick',
-    cellRotateDeg: [108, -252]
+    cellRotateDeg: [108, -252],
+    jsonIndex: 13
 }, {
     name: 'NewFoundland And Labrador',
-    cellRotateDeg: [144, -216]
+    cellRotateDeg: [144, -216],
+    jsonIndex: 14
 }, {
     name: 'Nova Scotia',
-    cellRotateDeg: [180, -180]
+    cellRotateDeg: [180, -180],
+    jsonIndex: 15
 }, {
     name: 'Ontario',
-    cellRotateDeg: [216, -144]
+    cellRotateDeg: [216, -144],
+    jsonIndex: 16
 }, {
     name: 'Prince Edward Island',
-    cellRotateDeg: [252, -108]
+    cellRotateDeg: [252, -108],
+    jsonIndex: 17
 }, {
     name: 'Quebec',
-    cellRotateDeg: [288, -72]
+    cellRotateDeg: [288, -72],
+    jsonIndex: 18
 }, {
     name: 'Saskatchewan',
-    cellRotateDeg: [324, -36]
+    cellRotateDeg: [324, -36],
+    jsonIndex: 19
 }];
 
 const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
@@ -198,6 +219,20 @@ export const getProvince = () => {
     //         break;
     // }
     return province;
+};
+
+const ajaxConfig = {
+    method: 'GET',
+    url: 'data.json',
+    async: true,
+    callback: ''
+};
+
+const ajax = option => {
+    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+    xhr.open(option.method, option.url, option.async);
+    xhr.send();
+    xhr.onload = callback;
 };
 
 export const showResult1 = () => {

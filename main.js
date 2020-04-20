@@ -68,7 +68,6 @@ eventConfig.forEach(currentTarget => {
 // window.addEventListener('beforeunload', goTop);
 // window.addEventListener('orientationchange', goTop);
 // window.addEventListener('resize', restorePage);
-// window.addEventListener('orientationchange', restorePage);
 // window.addEventListener('load', setSectionHeight);
 // window.addEventListener('resize', setSectionHeight);
 // window.addEventListener('orientationchange', setSectionHeight);
