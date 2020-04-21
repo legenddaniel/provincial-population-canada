@@ -1,4 +1,4 @@
-import { carousel, date, setSectionHeight, goTop, scrollCell, getProvince, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, msCellDisplayBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage, preventDefault } from './utils.js';
+import { carousel, date, setSectionHeight, goTop, scrollCell, btnGet1, btnGet2, showResult1, showResult2, scrollPage, btnArrow, position, scrollEnd, msCellDisplayBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage, preventDefault } from './utils.js';
 // import smoothscroll from 'smoothscroll-polyfill';
 
 // smoothscroll.polyfill();

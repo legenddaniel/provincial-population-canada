@@ -12,57 +12,56 @@ export const btnGet2 = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 export const date = document.getElementsByClassName('date');
 
-const config = {
-    'Alberta': {
-        cellRotateDeg: [0],
-        jsonIndex: 9
-    },
-    'British Colombia': {
-        cellRotateDeg: [36, -324],
-        jsonIndex: 10
-    }
-}
-
 const provinceConfig = [{
     name: 'Alberta',
     cellRotateDeg: [0],
-    jsonIndex: 9
+    jsonIndex: 9,
+    img: 'img-ab'
 }, {
     name: 'British Columbia',
     cellRotateDeg: [36, -324],
-    jsonIndex: 10
+    jsonIndex: 10,
+    img: 'img-bc'
 }, {
     name: 'Manitoba',
     cellRotateDeg: [72, -288],
-    jsonIndex: 12
+    jsonIndex: 12,
+    img: 'img-mn'
 }, {
     name: 'New Brunswick',
     cellRotateDeg: [108, -252],
-    jsonIndex: 13
+    jsonIndex: 13,
+    img: 'img-nb'
 }, {
-    name: 'NewFoundland And Labrador',
+    name: 'Newfoundland And Labrador',
     cellRotateDeg: [144, -216],
-    jsonIndex: 14
+    jsonIndex: 14,
+    img: 'img-nl'
 }, {
     name: 'Nova Scotia',
     cellRotateDeg: [180, -180],
-    jsonIndex: 15
+    jsonIndex: 15,
+    img: 'img-ns'
 }, {
     name: 'Ontario',
     cellRotateDeg: [216, -144],
-    jsonIndex: 16
+    jsonIndex: 16,
+    img: 'img-on'
 }, {
     name: 'Prince Edward Island',
     cellRotateDeg: [252, -108],
-    jsonIndex: 17
+    jsonIndex: 17,
+    img: 'img-pe'
 }, {
     name: 'Quebec',
     cellRotateDeg: [288, -72],
-    jsonIndex: 18
+    jsonIndex: 18,
+    img: 'img-qc'
 }, {
     name: 'Saskatchewan',
     cellRotateDeg: [324, -36],
-    jsonIndex: 19
+    jsonIndex: 19,
+    img: 'img-sk'
 }];
 
 const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
@@ -167,65 +166,51 @@ export const scrollCellMobile = (() => {
     return { setTouchStart, getTouchEnd };
 })();
 
-export const getProvince = () => {
+const getProvinceByIndex = () => {
     const deg = getRotateDeg() % 360;
-    const province = (() => {
+    const index = (() => {
         for (let province of provinceConfig) {
             if (province.cellRotateDeg.includes(deg)) {
-                return province.name;
+                return provinceConfig.indexOf(province);
             }
         }
     })();
-    // let province;
-    // switch (deg % 360) {
-    //     case 36:
-    //     case -324:
-    //         province = "British Columbia";
-    //         break;
-    //     case 72:
-    //     case -288:
-    //         province = "Manitoba";
-    //         break;
-    //     case 108:
-    //     case -252:
-    //         province = "New Brunswick";
-    //         break;
-    //     case 144:
-    //     case -216:
-    //         province = "Newfoundland And Labrador";
-    //         break;
-    //     case 180:
-    //     case -180:
-    //         province = "Nova Scotia";
-    //         break;
-    //     case 216:
-    //     case -144:
-    //         province = "Ontario";
-    //         break;
-    //     case 252:
-    //     case -108:
-    //         province = "Prince Edward Island";
-    //         break;
-    //     case 288:
-    //     case -72:
-    //         province = "Quebec";
-    //         break;
-    //     case 324:
-    //     case -36:
-    //         province = "Saskatchewan";
-    //         break;
-    //     default:
-    //         province = "Alberta";
-    //         break;
-    // }
-    return province;
+    return provinceConfig[index];
 };
 
+const getProvinceJSONIndex = () => getProvinceByIndex().jsonIndex;
+const getProvinceImg = () => getProvinceByIndex().img;
+
 const ajaxConfig = {
-    method: 'GET',
-    url: 'data.json',
-    async: true,
-    callback: ''
+    'national': {
+        method: 'GET',
+        url: 'data.json',
+        async: true,
+        callback: () => {
+            const data = JSON.parse(xhr.responseText).data;
+            const date = getValidDate(0);
+            const population = data.find(i => i[8].includes(date)) || '';
+            const result = population[11] || 'Select a date';
+            btnGet1.textContent = result;
+        }
+    },
+    'provincial': {
+        method: 'GET',
+        url: 'data.json',
+        async: true,
+        callback: () => {
+            const data = JSON.parse(xhr.responseText).data;
+            const date = getValidDate(1);
+            const population = data.find(i => i[8].includes(date)) || '';
+            const getResult = () => {
+                const index = getProvinceJSONIndex();
+                const populationData = population[index] || 'Select a date';
+                return populationData;
+            };
+            const result = getResult();
+            btnGet2.textContent = result;
+        }
+    }
 };
 
 const ajax = option => {
@@ -236,12 +221,12 @@ const ajax = option => {
 };
 
 export const showResult1 = () => {
-    const date = getValidDate(0);
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
     xhr.open("GET", 'data.json', true);
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
+        const date = getValidDate(0);
         const population = data.find(i => i[8].includes(date)) || '';
         const result = population[11] || 'Select a date';
         btnGet1.textContent = result;
@@ -249,28 +234,15 @@ export const showResult1 = () => {
 };
 
 export const showResult2 = () => {
-    const date = getValidDate(1);
-    const province = getProvince();
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
     xhr.open("GET", 'data.json', true);
     xhr.send();
     xhr.onload = () => {
         const data = JSON.parse(xhr.responseText).data;
+        const date = getValidDate(1);
         const population = data.find(i => i[8].includes(date)) || '';
-        const provinceData = {
-            'Alberta': 9,
-            'British Columbia': 10,
-            'Manitoba': 12,
-            'New Brunswick': 13,
-            'Newfoundland And Labrador': 14,
-            'Nova Scotia': 15,
-            'Ontario': 16,
-            'Prince Edward Island': 17,
-            'Quebec': 18,
-            'Saskatchewan': 19,
-        };
         const getResult = () => {
-            const index = provinceData[province];
+            const index = getProvinceJSONIndex();
             const populationData = population[index] || 'Select a date';
             return populationData;
         };
@@ -346,20 +318,7 @@ export const position = (() => {
 export const restorePage = debounce(position.restorePage, 66);
 
 const changeImg = () => {
-    const provinceImgMap = {
-        'Alberta': 'img-ab',
-        'British Columbia': 'img-bc',
-        'Manitoba': 'img-mn',
-        'New Brunswick': 'img-nb',
-        'Newfoundland And Labrador': 'img-nl',
-        'Nova Scotia': 'img-ns',
-        'Ontario': 'img-on',
-        'Prince Edward Island': 'img-pe',
-        'Quebec': 'img-qc',
-        'Saskatchewan': 'img-sk',
-    };
-    const province = getProvince();
-    const img = provinceImgMap[province];
+    const img = getProvinceImg();
     const aside = document.getElementById('province-img');
 
     aside.className = img;
