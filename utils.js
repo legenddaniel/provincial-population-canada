@@ -7,8 +7,8 @@
 // hover: none pointer: coarse ios9-
 
 export const carousel = document.getElementsByClassName('carousel')[0];
-export const btnGet1 = document.querySelector('#national .btn-txt');
-export const btnGet2 = document.querySelector('#provincial .btn-txt');
+export const btnNational = document.querySelector('#national .btn-txt');
+export const btnProvincial = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 export const date = document.getElementsByClassName('date');
 
@@ -181,34 +181,39 @@ const getProvinceByIndex = () => {
 const getProvinceJSONIndex = () => getProvinceByIndex().jsonIndex;
 const getProvinceImg = () => getProvinceByIndex().img;
 
+const getJSONPopulation = (responseText, section) => {
+    const sectionList = ['national', 'provincial'];
+    const data = JSON.parse(responseText).data;
+    const id = sectionList.indexOf(section);
+    const date = getValidDate(id);
+    const population = data.find(i => i[8].includes(date)) || '';
+    return population;
+};
+
 const ajaxConfig = {
     'national': {
         method: 'GET',
         url: 'data.json',
         async: true,
-        callback: () => {
-            const data = JSON.parse(xhr.responseText).data;
-            const date = getValidDate(0);
-            const population = data.find(i => i[8].includes(date)) || '';
+        callback() {
+            const population = getJSONPopulation(this.responseText, 'national');
             const result = population[11] || 'Select a date';
-            btnGet1.textContent = result;
+            btnNational.textContent = result;
         }
     },
     'provincial': {
         method: 'GET',
         url: 'data.json',
         async: true,
-        callback: () => {
-            const data = JSON.parse(xhr.responseText).data;
-            const date = getValidDate(1);
-            const population = data.find(i => i[8].includes(date)) || '';
+        callback() {
+            const population = getJSONPopulation(this.responseText, 'provincial');
             const getResult = () => {
                 const index = getProvinceJSONIndex();
                 const populationData = population[index] || 'Select a date';
                 return populationData;
             };
             const result = getResult();
-            btnGet2.textContent = result;
+            btnProvincial.textContent = result;
         }
     }
 };
@@ -217,38 +222,15 @@ const ajax = option => {
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
     xhr.open(option.method, option.url, option.async);
     xhr.send();
-    xhr.onload = callback;
+    xhr.onload = option.callback;
 };
 
-export const showResult1 = () => {
-    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open("GET", 'data.json', true);
-    xhr.send();
-    xhr.onload = () => {
-        const data = JSON.parse(xhr.responseText).data;
-        const date = getValidDate(0);
-        const population = data.find(i => i[8].includes(date)) || '';
-        const result = population[11] || 'Select a date';
-        btnGet1.textContent = result;
-    };
+export const showResultNational = () => {
+    ajax(ajaxConfig.national);
 };
 
-export const showResult2 = () => {
-    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open("GET", 'data.json', true);
-    xhr.send();
-    xhr.onload = () => {
-        const data = JSON.parse(xhr.responseText).data;
-        const date = getValidDate(1);
-        const population = data.find(i => i[8].includes(date)) || '';
-        const getResult = () => {
-            const index = getProvinceJSONIndex();
-            const populationData = population[index] || 'Select a date';
-            return populationData;
-        };
-        const result = getResult();
-        btnGet2.textContent = result;
-    };
+export const showResultProvincial = () => {
+    ajax(ajaxConfig.provincial);
 };
 
 export const scrollPage = e => {
