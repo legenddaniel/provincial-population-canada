@@ -6,63 +6,13 @@
 // setProperty ie9-
 // hover: none pointer: coarse ios9-
 
+import { provinceConfig, pageArrowConfig, ajaxConfig } from './config.js';
+
 export const carousel = document.getElementsByClassName('carousel')[0];
 export const btnNational = document.querySelector('#national .btn-txt');
 export const btnProvincial = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
-export const date = document.getElementsByClassName('date');
-
-const provinceConfig = [{
-    name: 'Alberta',
-    cellRotateDeg: [0],
-    jsonIndex: 9,
-    img: 'img-ab'
-}, {
-    name: 'British Columbia',
-    cellRotateDeg: [36, -324],
-    jsonIndex: 10,
-    img: 'img-bc'
-}, {
-    name: 'Manitoba',
-    cellRotateDeg: [72, -288],
-    jsonIndex: 12,
-    img: 'img-mn'
-}, {
-    name: 'New Brunswick',
-    cellRotateDeg: [108, -252],
-    jsonIndex: 13,
-    img: 'img-nb'
-}, {
-    name: 'Newfoundland And Labrador',
-    cellRotateDeg: [144, -216],
-    jsonIndex: 14,
-    img: 'img-nl'
-}, {
-    name: 'Nova Scotia',
-    cellRotateDeg: [180, -180],
-    jsonIndex: 15,
-    img: 'img-ns'
-}, {
-    name: 'Ontario',
-    cellRotateDeg: [216, -144],
-    jsonIndex: 16,
-    img: 'img-on'
-}, {
-    name: 'Prince Edward Island',
-    cellRotateDeg: [252, -108],
-    jsonIndex: 17,
-    img: 'img-pe'
-}, {
-    name: 'Quebec',
-    cellRotateDeg: [288, -72],
-    jsonIndex: 18,
-    img: 'img-qc'
-}, {
-    name: 'Saskatchewan',
-    cellRotateDeg: [324, -36],
-    jsonIndex: 19,
-    img: 'img-sk'
-}];
+export const datePicker = document.getElementsByClassName('date');
 
 const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
 
@@ -90,7 +40,7 @@ const isSafari = () => {
 }
 
 const getValidDate = i => {
-    const date = document.getElementsByClassName('date')[i].value;
+    const date = datePicker[i].value;
     const year = date.match(/^\d{4}-/);
     const monthNDay = date.match(/\d{2}-\d{2}$/);
     const validDate =
@@ -119,24 +69,20 @@ export const setSectionHeight = debounce(() => {
     }
 }, 66);
 
+const toggleArrows = (arrows, method) => {
+    const arrow = document.getElementsByClassName(arrows)[0].classList;
+    if (method === 'hide') {
+        arrow.add('d-none');
+    }
+    if (method === 'show') {
+        arrow.remove('d-none');
+    }
+};
+
 export const goTop = () => {
     window.scrollTo(0, 0);
-    console.log('gotop');
-    const toggleArrow = (arrows, method) => {
-        const arrow = document.getElementsByClassName(arrows)[0].classList;
-        if (method === 'hide') {
-            arrow.add('d-none');
-            console.log('hide ' + arrows);
-        }
-        if (method === 'show') {
-            arrow.remove('d-none');
-            console.log('show ' + arrows);
-        }
-    };
-    toggleArrow('arrow-top', 'hide');
-    toggleArrow('arrow-bot', 'show');
-    // document.getElementsByClassName('arrow-top')[0].classList.add('d-none');
-    // document.getElementsByClassName('arrow-bot')[0].classList.remove('d-none');
+    toggleArrows('arrow-top', 'hide');
+    toggleArrows('arrow-bot', 'show');
 };
 
 export const scrollCell = e => {
@@ -145,9 +91,6 @@ export const scrollCell = e => {
     const newDeg = dY < 0 ? deg - 36 : deg + 36;
 
     carousel.style.transform = `rotateX(${newDeg}deg)`;
-
-    // e.preventDefault();
-    // e.stopPropagation();
 };
 
 export const scrollCellMobile = (() => {
@@ -161,7 +104,6 @@ export const scrollCellMobile = (() => {
         const newDeg = touchEnd.pageY > touchStart.pageY ? deg - 36 : deg + 36;
 
         carousel.style.transform = `rotateX(${newDeg}deg)`;
-        // e.stopPropagation();
     };
     return { setTouchStart, getTouchEnd };
 })();
@@ -178,10 +120,10 @@ const getProvinceByIndex = () => {
     return provinceConfig[index];
 };
 
-const getProvinceJSONIndex = () => getProvinceByIndex().jsonIndex;
+export const getProvinceJSONIndex = () => getProvinceByIndex().jsonIndex;
 const getProvinceImg = () => getProvinceByIndex().img;
 
-const getJSONPopulation = (responseText, section) => {
+export const getJSONPopulation = (responseText, section) => {
     const sectionList = ['national', 'provincial'];
     const data = JSON.parse(responseText).data;
     const id = sectionList.indexOf(section);
@@ -190,48 +132,16 @@ const getJSONPopulation = (responseText, section) => {
     return population;
 };
 
-const ajaxConfig = {
-    'national': {
-        method: 'GET',
-        url: 'data.json',
-        async: true,
-        callback() {
-            const population = getJSONPopulation(this.responseText, 'national');
-            const result = population[11] || 'Select a date';
-            btnNational.textContent = result;
-        }
-    },
-    'provincial': {
-        method: 'GET',
-        url: 'data.json',
-        async: true,
-        callback() {
-            const population = getJSONPopulation(this.responseText, 'provincial');
-            const getResult = () => {
-                const index = getProvinceJSONIndex();
-                const populationData = population[index] || 'Select a date';
-                return populationData;
-            };
-            const result = getResult();
-            btnProvincial.textContent = result;
-        }
-    }
-};
-
 const ajax = option => {
     const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
     xhr.open(option.method, option.url, option.async);
     xhr.send();
-    xhr.onload = option.callback;
+    xhr.onload = option.fn;
 };
 
-export const showResultNational = () => {
-    ajax(ajaxConfig.national);
-};
+export const showResultNational = ajax.bind(null, ajaxConfig.national);
 
-export const showResultProvincial = () => {
-    ajax(ajaxConfig.provincial);
-};
+export const showResultProvincial = ajax.bind(null, ajaxConfig.provincial);
 
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
@@ -252,7 +162,6 @@ export const scrollPage = e => {
 export const scrollEnd = debounce(() => {
     position.updatePageNum();
     btnArrow.addEventListener('click', scrollPage);
-    console.log('scrollend');
 }, 66);
 
 export const touchmoveMobile = debounce(scrollCellMobile.getTouchEnd, 66);
@@ -261,38 +170,17 @@ export const position = (() => {
     let pageNum = 0;
     const updatePageNum = () => {
         pageNum = Math.round(window.pageYOffset / window.innerHeight);
-        console.log('pageNum=' + pageNum + 'window.scrollY=' + window.scrollY);
     };
     const restorePage = () => {
         const scrollY = pageNum * window.innerHeight;
-        console.log(window.scrollY + '!=' + scrollY + '=' + pageNum + '*' + window.innerHeight);
         window.scrollTo(0, scrollY);
     };
     const toggleArrow = e => {
-        const toggle = arrowAct => {
-            const topOrBot = document.getElementsByClassName(arrowAct)[0].classList;
-            const showArrow = () => {
-                topOrBot.remove('d-none');
-            };
-            const hideArrow = () => {
-                topOrBot.add('d-none');
-            };
-            return { showArrow, hideArrow };
-        };
+        const arrow = pageArrowConfig[pageNum];
+        const currentPage = pageNum in pageArrowConfig;
+        const isClicked = e.target === document.getElementsByClassName(arrow.arrowClicked)[0];
 
-        const toggleTop = toggle('arrow-top');
-        const toggleBot = toggle('arrow-bot');
-
-        const target = arrowPas => document.getElementsByClassName(arrowPas)[0];
-        const pageArrowMap = [
-            { 'arrow-bot': toggleTop.showArrow }, // showtop: page0, click bot
-            { 'arrow-top': toggleTop.hideArrow }, // hidetop: page1, click top
-            { 'arrow-bot': toggleBot.hideArrow }, // hidebot: page2, click bot
-            { 'arrow-top': toggleBot.showArrow }  // showbot: page3, click top
-        ];
-        const arrow = pageArrowMap[pageNum];
-
-        pageNum in pageArrowMap && e.target === target(Object.keys(arrow)[0]) && Object.values(arrow)[0]();
+        if (currentPage && isClicked) toggleArrows(arrow.arrowHandled, arrow.method);
     };
     return { updatePageNum, restorePage, toggleArrow };
 })();
@@ -332,7 +220,6 @@ export const preloadImg = (...urls) => {
     })
 
     document.body.appendChild(toolDiv);
-    console.log('img preloaded');
 };
 
 export const safariRestorePage = () => {
