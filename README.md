@@ -35,4 +35,6 @@ Bugs:
 
     1. On Edge the slot machine widget (province selector) might have a flicker due to unknown reason. Partially fixed by a forced repaint when rolling the widget to make it look better.
 
+Unusual module import/export issue, might be a TDZ issue. Not leading to a bad implementation but can be optimized more.
+
 <img src="img/qr-page.png">

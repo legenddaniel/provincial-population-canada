@@ -14,7 +14,16 @@ export const btnProvincial = document.querySelector('#provincial .btn-txt');
 export const btnArrow = document.getElementById('arrows');
 export const datePicker = document.getElementsByClassName('date');
 
-const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
+export const on = function (currentTarget, type, handler) {
+    currentTarget.addEventListener(type, handler);
+};
+
+const ajax = option => {
+    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+    xhr.open(option.method, option.url, option.async);
+    xhr.send();
+    xhr.onload = option.fn;
+};
 
 const debounce = (fn, delay, immediate) => {
     let timer;
@@ -37,7 +46,9 @@ const isSafari = () => {
     const ua = navigator.userAgent;
     const safari = (/Mac|iPhone|iPad/).test(ua);
     return safari;
-}
+};
+
+const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
 
 const getValidDate = i => {
     const date = datePicker[i].value;
@@ -57,6 +68,47 @@ const getRotateDeg = () => {
     return deg;
 };
 
+const toggleArrows = (arrows, method) => {
+    const arrow = document.getElementsByClassName(arrows)[0].classList;
+    if (method === 'hide') {
+        arrow.add('d-none');
+    }
+    if (method === 'show') {
+        arrow.remove('d-none');
+    }
+};
+
+const changeImg = () => {
+    const img = getProvinceImg();
+    const aside = document.getElementById('province-img');
+
+    aside.className = img;
+};
+
+const getProvinceByIndex = () => {
+    const deg = getRotateDeg() % 360;
+    const index = (() => {
+        for (let province of provinceConfig) {
+            if (province.cellRotateDeg.includes(deg)) {
+                return provinceConfig.indexOf(province);
+            }
+        }
+    })();
+    return provinceConfig[index];
+};
+export const getProvinceJSONIndex = () => getProvinceByIndex().jsonIndex;
+
+const getProvinceImg = () => getProvinceByIndex().img;
+
+export const getJSONPopulation = (responseText, section) => {
+    const sectionList = ['national', 'provincial'];
+    const data = JSON.parse(responseText).data;
+    const id = sectionList.indexOf(section);
+    const date = getValidDate(id);
+    const population = data.find(i => i[8].includes(date)) || '';
+    return population;
+};
+
 export const setSectionHeight = debounce(() => {
     const match = mq => matchMedia(mq).matches;
     const chrome = (/Chrome.*Mobile/).test(navigator.userAgent);
@@ -68,16 +120,6 @@ export const setSectionHeight = debounce(() => {
         document.documentElement.removeAttribute('style');
     }
 }, 66);
-
-const toggleArrows = (arrows, method) => {
-    const arrow = document.getElementsByClassName(arrows)[0].classList;
-    if (method === 'hide') {
-        arrow.add('d-none');
-    }
-    if (method === 'show') {
-        arrow.remove('d-none');
-    }
-};
 
 export const goTop = () => {
     window.scrollTo(0, 0);
@@ -108,37 +150,6 @@ export const scrollCellMobile = (() => {
     return { setTouchStart, getTouchEnd };
 })();
 
-const getProvinceByIndex = () => {
-    const deg = getRotateDeg() % 360;
-    const index = (() => {
-        for (let province of provinceConfig) {
-            if (province.cellRotateDeg.includes(deg)) {
-                return provinceConfig.indexOf(province);
-            }
-        }
-    })();
-    return provinceConfig[index];
-};
-
-export const getProvinceJSONIndex = () => getProvinceByIndex().jsonIndex;
-const getProvinceImg = () => getProvinceByIndex().img;
-
-export const getJSONPopulation = (responseText, section) => {
-    const sectionList = ['national', 'provincial'];
-    const data = JSON.parse(responseText).data;
-    const id = sectionList.indexOf(section);
-    const date = getValidDate(id);
-    const population = data.find(i => i[8].includes(date)) || '';
-    return population;
-};
-
-const ajax = option => {
-    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open(option.method, option.url, option.async);
-    xhr.send();
-    xhr.onload = option.fn;
-};
-
 export const showResultNational = ajax.bind(null, ajaxConfig.national);
 
 export const showResultProvincial = ajax.bind(null, ajaxConfig.provincial);
@@ -155,7 +166,7 @@ export const scrollPage = e => {
         });
     } else {
         window.scrollBy(0, +`${direction}${innerHeight}`);
-    };
+    }
     e.currentTarget.removeEventListener('click', scrollPage);
 };
 
@@ -187,11 +198,8 @@ export const position = (() => {
 
 export const restorePage = debounce(position.restorePage, 66);
 
-const changeImg = () => {
-    const img = getProvinceImg();
-    const aside = document.getElementById('province-img');
-
-    aside.className = img;
+export const safariRestorePage = () => {
+    if (isSafari()) restorePage();
 };
 
 export const msCellDisplayBugFix = (setOverflowX = true) => {
@@ -220,10 +228,6 @@ export const preloadImg = (...urls) => {
     })
 
     document.body.appendChild(toolDiv);
-};
-
-export const safariRestorePage = () => {
-    if (isSafari()) restorePage();
 };
 
 export const preventDefault = e => {
