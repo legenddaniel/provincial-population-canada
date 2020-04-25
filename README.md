@@ -13,11 +13,11 @@ No sprites due to the complicated calculation of the background-position for cal
 
 Due to the normal concensus that larger screen should display more content, small font size issue on some models of mobile phones would not be fixed
 
-Due to the layout setting, keyboard navigation is cancelled. Use pointers to reach the elements.
+Due to the layout setting, no keyboard navigation. Use pointers to reach the elements.
 
 Due to a solution conflict, now the page will go back to top after resize, orientation change and refresh.
 
-On Edge, Safari and mobile Firefox due to compatibility no smooth scroll
+On Edge, Safari and mobile Firefox due to browser support no smooth scroll
 
 Bugs:
 
