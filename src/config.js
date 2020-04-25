@@ -1,6 +1,6 @@
 import { btnNational, btnProvincial, getProvinceJSONIndex, getJSONPopulation } from './utils.js';
 
-export const imgPreloadConfig = ['../img/bc.jpg', '../img/mn.jpg', '../img/nb.jpg', '../img/nl.jpg', '../img/ns.jpg', '../img/on.jpg', '../img/pe.jpg', '../img/qc.jpg', '../img/sk.jpg'];
+export const imgPreloadConfig = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jpg', 'img/on.jpg', 'img/pe.jpg', 'img/qc.jpg', 'img/sk.jpg'];
 
 export const provinceConfig = [{
     name: 'Alberta',
