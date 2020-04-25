@@ -147,53 +147,6 @@
     width: calc(50vw - 21rem);
 }
 
-/* .img-ab,
-.img-bc,
-.img-mn,
-.img-nb,
-.img-nl,
-.img-ns,
-.img-on,
-.img-pe,
-.img-qc,
-.img-sk {
-    position: absolute;
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-} */
-
-/* .img-ab::before,
-.img-ab::after,
-.img-bc::before,
-.img-bc::after,
-.img-mn::before,
-.img-mn::after,
-.img-nb::before,
-.img-nb::after,
-.img-nl::before,
-.img-nl::after,
-.img-ns::before,
-.img-ns::after,
-.img-on::before,
-.img-on::after,
-.img-pe::before,
-.img-pe::after,
-.img-qc::before,
-.img-qc::after,
-.img-sk::before,
-.img-sk::after {
-    content: "";
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: calc(50vw - 21rem);
-} */
-
 .img-ab::before,
 .img-ab::after {
     background-image: url(../img/ab.jpg);

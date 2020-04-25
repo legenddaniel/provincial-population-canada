@@ -19,10 +19,14 @@ export const on = function (currentTarget, type, handler) {
 };
 
 const ajax = option => {
-    const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open(option.method, option.url, option.async);
-    xhr.send();
-    xhr.onload = option.fn;
+    return new Promise(res => {
+        const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open(option.method, option.url, option.async);
+        xhr.send();
+        xhr.onload = function () {
+            res(this.responseText);
+        };
+    }).then(option.fn);
 };
 
 const debounce = (fn, delay, immediate) => {
@@ -221,13 +225,28 @@ export const preloadImg = (...urls) => {
     toolDiv.className = 'd-none';
     toolDiv.setAttribute('title', '<div> for img preload as rel=preload && data-* not working well');
 
-    urls.forEach(url => {
-        const img = new Image();
-        img.src = url;
-        toolDiv.appendChild(img);
-    })
+    // urls.forEach(url => {
+    //     const promise = new Promise(res => {
+    //         const img = new Image();
+    //         img.src = url;
+    //         img.onload = res(img);
+    //     }).then(img => toolDiv.appendChild(img));
+    // })
 
-    document.body.appendChild(toolDiv);
+    // document.body.appendChild(toolDiv);
+    let promises = [];
+    const load = url => {
+        return new Promise(res => {
+            const img = new Image();
+            img.src = url;
+            img.onload = () => res(img);
+        });
+    };
+    urls.forEach(url => {
+        const promise = load(url).then(img => toolDiv.appendChild(img));
+        promises.push(promise);
+    });
+    Promise.all(promises).then(() => document.body.appendChild(toolDiv));
 };
 
 export const preventDefault = e => {

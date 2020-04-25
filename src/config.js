@@ -81,8 +81,8 @@ export const ajaxConfig = {
         method: 'GET',
         url: 'data.json',
         async: true,
-        fn() {
-            const population = getJSONPopulation(this.responseText, 'national');
+        fn(responseText) {
+            const population = getJSONPopulation(responseText, 'national');
             const result = population[11] || 'Select a date';
             btnNational.textContent = result;
         }
@@ -91,8 +91,8 @@ export const ajaxConfig = {
         method: 'GET',
         url: 'data.json',
         async: true,
-        fn() {
-            const population = getJSONPopulation(this.responseText, 'provincial');
+        fn(responseText) {
+            const population = getJSONPopulation(responseText, 'provincial');
             const getResult = () => {
                 const index = getProvinceJSONIndex();
                 const populationData = population[index] || 'Select a date';
