@@ -113,6 +113,30 @@ export const getJSONPopulation = (responseText, section) => {
     return population;
 };
 
+export const preloadImg = (...urls) => {
+    const toolDiv = document.createElement('div');
+    toolDiv.className = 'd-none';
+    toolDiv.setAttribute('title', '<div> for async img preload as rel=preload && data attribute not working well');
+
+    const promises = [];
+    const load = url => {
+        return new Promise(res => {
+            const img = new Image();
+            img.src = url;
+            img.onload = () => res(img);
+        });
+    };
+    urls.forEach(url => {
+        const promise = load(url).then(img => {
+            toolDiv.appendChild(img);
+        });
+        promises.push(promise);
+    });
+    Promise.all(promises).then(() => {
+        document.body.appendChild(toolDiv);
+    });
+};
+
 export const setSectionHeight = debounce(() => {
     const match = mq => matchMedia(mq).matches;
     const chrome = (/Chrome.*Mobile/).test(navigator.userAgent);
@@ -219,35 +243,6 @@ export const wheelEnd = debounce(() => {
     changeImg();
     msCellDisplayBugFix(false);
 }, 500);
-
-export const preloadImg = (...urls) => {
-    const toolDiv = document.createElement('div');
-    toolDiv.className = 'd-none';
-    toolDiv.setAttribute('title', '<div> for img preload as rel=preload && data-* not working well');
-
-    // urls.forEach(url => {
-    //     const promise = new Promise(res => {
-    //         const img = new Image();
-    //         img.src = url;
-    //         img.onload = res(img);
-    //     }).then(img => toolDiv.appendChild(img));
-    // })
-
-    // document.body.appendChild(toolDiv);
-    let promises = [];
-    const load = url => {
-        return new Promise(res => {
-            const img = new Image();
-            img.src = url;
-            img.onload = () => res(img);
-        });
-    };
-    urls.forEach(url => {
-        const promise = load(url).then(img => toolDiv.appendChild(img));
-        promises.push(promise);
-    });
-    Promise.all(promises).then(() => document.body.appendChild(toolDiv));
-};
 
 export const preventDefault = e => {
     e.preventDefault();
