@@ -196,52 +196,52 @@
 
 .img-ab::before,
 .img-ab::after {
-    background-image: url(../img/ab.jpg);
+    background-image: url(img/ab.jpg);
 }
 
 .img-bc::before,
 .img-bc::after {
-    background-image: url(../img/bc.jpg);
+    background-image: url(img/bc.jpg);
 }
 
 .img-mn::before,
 .img-mn::after {
-    background-image: url(../img/mn.jpg);
+    background-image: url(img/mn.jpg);
 }
 
 .img-nb::before,
 .img-nb::after {
-    background-image: url(../img/nb.jpg);
+    background-image: url(img/nb.jpg);
 }
 
 .img-nl::before,
 .img-nl::after {
-    background-image: url(../img/nl.jpg);
+    background-image: url(img/nl.jpg);
 }
 
 .img-ns::before,
 .img-ns::after {
-    background-image: url(../img/ns.jpg);
+    background-image: url(img/ns.jpg);
 }
 
 .img-on::before,
 .img-on::after {
-    background-image: url(../img/on.jpg);
+    background-image: url(img/on.jpg);
 }
 
 .img-pe::before,
 .img-pe::after {
-    background-image: url(../img/pe.jpg);
+    background-image: url(img/pe.jpg);
 }
 
 .img-qc::before,
 .img-qc::after {
-    background-image: url(../img/qc.jpg);
+    background-image: url(img/qc.jpg);
 }
 
 .img-sk::before,
 .img-sk::after {
-    background-image: url(../img/sk.jpg);
+    background-image: url(img/sk.jpg);
 }
 
 .img-ab::after,
@@ -355,7 +355,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(../img/ca.jpg) center no-repeat;
+    background: url(img/ca.jpg) center no-repeat;
     background-size: cover;
 }
 /* Color ↑ */
