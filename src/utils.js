@@ -82,7 +82,7 @@ const changeImg = () => {
     const img = getProvinceImg();
     const aside = document.getElementById('province-img');
 
-    aside.className = img;
+    aside.className = `img ${img}`;
 };
 
 const getProvinceByIndex = () => {

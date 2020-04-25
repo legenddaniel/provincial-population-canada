@@ -127,7 +127,27 @@
     appearance: none;
 }
 
-.img-ab,
+.img {
+    position: absolute;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.img::before,
+.img::after {
+    content: "";
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: calc(50vw - 21rem);
+}
+
+/* .img-ab,
 .img-bc,
 .img-mn,
 .img-nb,
@@ -146,9 +166,9 @@
     width: 100%;
     height: 100%;
     background-color: transparent;
-}
+} */
 
-.img-ab::before,
+/* .img-ab::before,
 .img-ab::after,
 .img-bc::before,
 .img-bc::after,
@@ -172,7 +192,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: calc(50vw - 21rem);
-}
+} */
 
 .img-ab::before,
 .img-ab::after {
@@ -245,19 +265,20 @@
     position: relative;
 }
 
-.p-abs {
-    position: absolute;
-}
 /* Position ↑ */
 
 /* Display ↓ */
+.d-none {
+    display: none;
+}
+
+.of-hidden {
+    overflow: hidden;
+}
+
 .flex {
     display: -webkit-box;
     display: flex;
-}
-
-.d-none {
-    display: none;
 }
 
 .flex-column {
@@ -271,29 +292,11 @@
     justify-content: center;
 }
 
-.justify-between {
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-}
-
-.justify-around {
-    justify-content: space-around;
-}
-
-.align-center {
-    -webkit-box-align: center;
-    align-items: center;
-}
-
 .flex-center {
     -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-}
-
-.of-hidden {
-    overflow: hidden;
 }
 /* Display ↑ */
 
@@ -303,24 +306,12 @@
     width: 80vw;
 }
 
-.w-60 {
-    width: 60vw;
-}
-
 .mw-80 {
     max-width: 80vw;
 }
 
-.w-17r {
-    width: 17rem;
-}
-
 .w-bg-red {
     width: 40rem;
-}
-
-.h-full {
-    height: 100vh;
 }
 
 .h-sg {
@@ -386,17 +377,12 @@
     font-size: 1.5rem;
 }
 
-.txt-md {
-    font-size: 1.2rem;
-}
-
-.bold {
+.txt-bold {
     font-weight: bold;
 }
 
 .txt-em {
     font-size: 4.5rem;
-    font-weight: bold;
 }
 
 .txt-rainbow {
