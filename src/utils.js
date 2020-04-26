@@ -118,7 +118,6 @@ export const preloadImg = (...urls) => {
     toolDiv.className = 'd-none';
     toolDiv.setAttribute('title', '<div> for async img preload as rel=preload && data attribute not working well');
 
-    const promises = [];
     const load = url => {
         return new Promise(res => {
             const img = new Image();
@@ -126,13 +125,15 @@ export const preloadImg = (...urls) => {
             img.onload = () => res(img);
         });
     };
-    urls.forEach(url => {
-        const promise = load(url).then(img => {
+    const getImgs = imgs => {
+        const promises = imgs.map(async url => {
+            const img = await load(url);
             toolDiv.appendChild(img);
         });
-        promises.push(promise);
-    });
-    Promise.all(promises).then(() => {
+        console.log(promises);
+        return Promise.all(promises);
+    }
+    getImgs(urls).then(() => {
         document.body.appendChild(toolDiv);
     });
 };
