@@ -18,8 +18,8 @@ export const on = function (currentTarget, type, handler) {
     currentTarget.addEventListener(type, handler);
 };
 
-const ajax = async option => {
-    return await new Promise(res => {
+const ajax = option => {
+    return new Promise(res => {
         const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
         xhr.open(option.method, option.url, option.async);
         xhr.send();
