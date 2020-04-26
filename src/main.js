@@ -1,5 +1,5 @@
 import { on } from './utils.js';
-import { events } from './events.js';
+import events from './events.js';
 
 events.forEach(currentTarget => {
     currentTarget.events.forEach(e => {

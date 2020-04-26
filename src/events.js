@@ -4,7 +4,7 @@ import { carousel, btnNational, btnProvincial, btnArrow, datePicker } from './ut
 
 import { imgPreloadConfig } from './config.js'
 
-export const events = [{
+export default [{
     target: window,
     events: [{
         name: 'load',
