@@ -18,8 +18,8 @@ export const on = function (currentTarget, type, handler) {
     currentTarget.addEventListener(type, handler);
 };
 
-const ajax = option => {
-    return new Promise(res => {
+const ajax = async option => {
+    return await new Promise(res => {
         const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
         xhr.open(option.method, option.url, option.async);
         xhr.send();
@@ -130,7 +130,6 @@ export const preloadImg = (...urls) => {
             const img = await load(url);
             toolDiv.appendChild(img);
         });
-        console.log(promises);
         return Promise.all(promises);
     }
     getImgs(urls).then(() => {
