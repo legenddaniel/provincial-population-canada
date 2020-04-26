@@ -1,4 +1,6 @@
-import { carousel, setSectionHeight, goTop, scrollCell, btnNational, btnProvincial, showResultNational, showResultProvincial, scrollPage, btnArrow, position, scrollEnd, msCellDisplayBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, preventDefault } from './utils.js';
+import { setSectionHeight, goTop, scrollCell, showResultNational, showResultProvincial, scrollPage, position, scrollEnd, msCellDisplayBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, preventDefault, safariRestorePage } from './handlers.js';
+
+import { carousel, btnNational, btnProvincial, btnArrow, datePicker } from './utils.js';
 
 import { imgPreloadConfig } from './config.js'
 
@@ -55,5 +57,23 @@ export const events = [{
     events: [{
         name: 'click',
         handlers: [showResultProvincial]
+    }]
+}, {
+    target: datePicker[0],
+    events: [{
+        name: 'focus',
+        handlers: [safariRestorePage]
+    }, {
+        name: 'blur',
+        handlers: [safariRestorePage]
+    }]
+}, {
+    target: datePicker[1],
+    events: [{
+        name: 'focus',
+        handlers: [safariRestorePage]
+    }, {
+        name: 'blur',
+        handlers: [safariRestorePage]
     }]
 }];

@@ -1,10 +1,5 @@
-import { datePicker, on, safariRestorePage } from './utils.js';
-
+import { on } from './utils.js';
 import { events } from './events.js';
-
-// import smoothscroll from 'smoothscroll-polyfill';
-
-// smoothscroll.polyfill();
 
 events.forEach(currentTarget => {
     currentTarget.events.forEach(e => {
@@ -14,10 +9,10 @@ events.forEach(currentTarget => {
     });
 });
 
-for (let widget of datePicker) {
-    widget.addEventListener('focus', safariRestorePage);
-    widget.addEventListener('blur', safariRestorePage);
-}
+// for (let widget of datePicker) {
+//     widget.addEventListener('focus', safariRestorePage);
+//     widget.addEventListener('blur', safariRestorePage);
+// }
 
 
 
