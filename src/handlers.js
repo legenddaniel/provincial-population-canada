@@ -6,7 +6,7 @@
 // setProperty ie9-
 // hover: none pointer: coarse ios9-
 
-import { pageArrowConfig, ajaxConfig } from './config.js';
+import { pageArrowConfig, ajaxConfig, provinceConfig } from './config.js';
 import { carousel, btnArrow, debounce, ajax, isSafari, scrollBehavior, getRotateDeg, toggleArrows, changeImg } from './utils.js';
 
 export const preloadImg = (...urls) => {
@@ -136,7 +136,7 @@ export const msCellDisplayBugFix = (setOverflowX = true) => {
 };
 
 export const wheelEnd = debounce(() => {
-    changeImg();
+    changeImg(provinceConfig);
     msCellDisplayBugFix(false);
 }, 500);
 

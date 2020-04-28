@@ -1,6 +1,5 @@
 import { btnNational, btnProvincial, getProvinceJSONIndex, getJSONPopulation } from './utils.js';
 
-
 export const imgPreloadConfig = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jpg', 'img/on.jpg', 'img/pe.jpg', 'img/qc.jpg', 'img/sk.jpg'];
 
 export const provinceConfig = [{
@@ -95,7 +94,7 @@ export const ajaxConfig = {
         fn(responseText) {
             const population = getJSONPopulation(responseText, 'provincial');
             const getResult = () => {
-                const index = getProvinceJSONIndex();
+                const index = getProvinceJSONIndex(provinceConfig);
                 const populationData = population[index] || 'Select a date';
                 return populationData;
             };
