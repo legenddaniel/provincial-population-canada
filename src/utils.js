@@ -1,3 +1,5 @@
+import { provinceConfig } from './config.js';
+
 export const carousel = document.getElementsByClassName('carousel')[0];
 export const btnNational = document.querySelector('#national .btn-txt');
 export const btnProvincial = document.querySelector('#provincial .btn-txt');
@@ -60,18 +62,18 @@ export const toggleArrows = (arrows, method) => {
     }
 };
 
-const getProvinceByIndex = provinces => {
+const getProvinceByIndex = () => {
     const deg = getRotateDeg() % 360;
     const index = (() => {
-        for (let province of provinces) {
+        for (let province of provinceConfig) {
             if (province.cellRotateDeg.includes(deg)) {
-                return provinces.indexOf(province);
+                return provinceConfig.indexOf(province);
             }
         }
     })();
-    return provinces[index];
+    return provinceConfig[index];
 };
-export const getProvinceJSONIndex = provinceConfig => getProvinceByIndex(provinceConfig).jsonIndex;
+export const getProvinceJSONIndex = () => getProvinceByIndex().jsonIndex;
 
 export const getJSONPopulation = (responseText, section) => {
     const getValidDate = i => {
@@ -85,7 +87,7 @@ export const getJSONPopulation = (responseText, section) => {
                         '01-01';
         return year + validDate;
     };
-
+    
     const sectionList = ['national', 'provincial'];
     const data = JSON.parse(responseText).data;
     const id = sectionList.indexOf(section);
@@ -94,8 +96,8 @@ export const getJSONPopulation = (responseText, section) => {
     return population;
 };
 
-export const changeImg = provinceImgs => {
-    const getProvinceImg = () => getProvinceByIndex(provinceImgs).img;
+export const changeImg = () => {
+    const getProvinceImg = () => getProvinceByIndex().img;
     const img = getProvinceImg();
     const aside = document.getElementById('province-img');
 
