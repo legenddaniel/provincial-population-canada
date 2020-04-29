@@ -9,10 +9,5 @@ events.forEach(currentTarget => {
     });
 });
 
-// for (let widget of datePicker) {
-//     widget.addEventListener('focus', safariRestorePage);
-//     widget.addEventListener('blur', safariRestorePage);
-// }
-
 
 
