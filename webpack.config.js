@@ -1,20 +1,20 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     entry: './src/script/main.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle[hash].js'
+        filename: 'bundle.js'
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new OptimizeCssAssetsPlugin()
     ],
     module: {
         rules: [
@@ -28,7 +28,7 @@ module.exports = {
                             ["@babel/preset-env",
                                 {
                                     useBuiltIns: "usage",
-                                    corejs: 3,
+                                    corejs: '3.6.5',
                                     targets: {
                                         chrome: '62',
                                         firefox: '57',
