@@ -1,5 +1,95 @@
-@import 'reset.css';
+/* Can use Normalize.css */
 
+* {
+    box-sizing: border-box;
+    z-index: 3;
+}
+
+body,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: initial;
+}
+
+a:hover {
+    color: #fffcdf;
+}
+
+ul {
+    list-style: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+button:active {
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 4vw;
+    }
+
+    h2 {
+        font-size: 3vw;
+    }
+
+    p {
+        font-size: 2vw;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+
+    p {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    h1 {
+        font-size: 6.67vh;
+    }
+
+    h2 {
+        font-size: 5vh;
+    }
+
+    p {
+        font-size: 3.33vh;
+    }
+}
 /* Component ↓ */
 .btn-txt {
     background-color: inherit;
@@ -151,52 +241,52 @@
 
 .img-ab::before,
 .img-ab::after {
-    background-image: url(../img/ab.jpg);
+    background-image: url(img/b173ec7e200f960ff9e5e54f9a653305.jpg);
 }
 
 .img-bc::before,
 .img-bc::after {
-    background-image: url(../img/bc.jpg);
+    background-image: url(img/33df62feaa1871d7ff4c2b933aa82992.jpg);
 }
 
 .img-mn::before,
 .img-mn::after {
-    background-image: url(../img/mn.jpg);
+    background-image: url(img/71b1abb6a445059bf43463ab80e75506.jpg);
 }
 
 .img-nb::before,
 .img-nb::after {
-    background-image: url(../img/nb.jpg);
+    background-image: url(img/8aa56b4e08ef9a40c92e6e0609991280.jpg);
 }
 
 .img-nl::before,
 .img-nl::after {
-    background-image: url(../img/nl.jpg);
+    background-image: url(img/183ad681c899a84c82e288ac8ad30604.jpg);
 }
 
 .img-ns::before,
 .img-ns::after {
-    background-image: url(../img/ns.jpg);
+    background-image: url(img/329b774421235a3b27d7142b1707ea01.jpg);
 }
 
 .img-on::before,
 .img-on::after {
-    background-image: url(../img/on.jpg);
+    background-image: url(img/40734ae2e8255713e76814eba786f018.jpg);
 }
 
 .img-pe::before,
 .img-pe::after {
-    background-image: url(../img/pe.jpg);
+    background-image: url(img/8c40e3bdea0a863b76d888ad9952cf74.jpg);
 }
 
 .img-qc::before,
 .img-qc::after {
-    background-image: url(../img/qc.jpg);
+    background-image: url(img/1d9c8fdb875c31cbfa1f83e11a7038af.jpg);
 }
 
 .img-sk::before,
 .img-sk::after {
-    background-image: url(../img/sk.jpg);
+    background-image: url(img/5681a01b46e89618d96ff523dc81a1fb.jpg);
 }
 
 .img-ab::after,
@@ -310,7 +400,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(../img/ca.jpg) center no-repeat;
+    background: url(img/53e933231fe50d46d6bf6b0133f69d47.jpg) center no-repeat;
     background-size: cover;
 }
 /* Color ↑ */
@@ -491,3 +581,4 @@
         display: none;
     }
 }
+
