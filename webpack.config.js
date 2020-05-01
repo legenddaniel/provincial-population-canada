@@ -17,6 +17,30 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ["@babel/preset-env",
+                                {
+                                    useBuiltIns: "usage",
+                                    corejs: 3,
+                                    targets: {
+                                        chrome: '62',
+                                        firefox: '57',
+                                        safari: '9',
+                                        ie: '10',
+                                        edge: '12'
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                }
+            },
+            {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
@@ -26,7 +50,8 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: 'img'
+                            outputPath: 'img',
+                            esModule: false
                         }
                     },
                 ],
