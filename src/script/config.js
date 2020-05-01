@@ -79,7 +79,7 @@ export const pageArrowConfig = [{
 export const ajaxConfig = {
     'national': {
         method: 'GET',
-        url: 'data.json',
+        url: '../data/data.json',
         async: true,
         fn(responseText) {
             const population = getJSONPopulation(responseText, 'national');
@@ -89,7 +89,7 @@ export const ajaxConfig = {
     },
     'provincial': {
         method: 'GET',
-        url: 'data.json',
+        url: '../data/data.json',
         async: true,
         fn(responseText) {
             const population = getJSONPopulation(responseText, 'provincial');
