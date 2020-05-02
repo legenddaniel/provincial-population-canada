@@ -433,6 +433,17 @@
     }
 }
 
+@media screen and (max-height: 550px) and (orientation: landscape) {
+    .widget {
+        width: 50vh;
+    }
+    
+    .img::before,
+    .img::after {
+        width: calc(50vw - 15rem);
+    }
+}
+
 @media screen and (max-width: 672px) {
     #province-img {
         display: none;
