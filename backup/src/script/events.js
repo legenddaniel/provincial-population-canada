@@ -1,4 +1,4 @@
-import { setSectionHeight, goTop, scrollCell, showResultNational, showResultProvincial, scrollPage, position, scrollEnd, msCellDisplayBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, preventDefault, safariRestorePage } from './handlers.js';
+import { setSectionHeight, goTop, scrollCell, showResultNational, showResultProvincial, scrollPage, position, scrollEnd, msCellDisplayBugFix, wheelEnd, preloadImg, scrollCellMobile, touchmoveMobile, restorePage, safariRestorePage, backgroundClipText, preventDefault } from './handlers.js';
 
 import { carousel, btnNational, btnProvincial, btnArrow, datePicker } from './utils.js';
 
@@ -8,7 +8,7 @@ export default [{
     target: window,
     events: [{
         name: 'load',
-        handlers: [preloadImg(...imgPreloadConfig), setSectionHeight]
+        handlers: [preloadImg(...imgPreloadConfig), setSectionHeight, backgroundClipText]
     }, {
         name: 'beforeunload',
         handlers: [goTop]

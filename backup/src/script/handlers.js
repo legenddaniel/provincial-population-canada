@@ -1,13 +1,5 @@
-// e.deltaY ios
-// find() includes() ie
-// scrollBy options ie edge79-
-// scrollBy ie 11-
-// classList remove add ie10-
-// setProperty ie9-
-// hover: none pointer: coarse ios9-
-
 import { pageArrowConfig, ajaxConfig, provinceConfig } from './config.js';
-import { carousel, btnArrow, debounce, ajax, isSafari, scrollBehavior, getRotateDeg, toggleArrows, changeImg } from './utils.js';
+import { carousel, btnArrow, debounce, ajax, isSafari, getRotateDeg, toggleArrows, changeImg } from './utils.js';
 
 export const preloadImg = (...urls) => {
     const toolDiv = document.createElement('div');
@@ -83,7 +75,7 @@ export const scrollPage = e => {
     const innerHeight = window.innerHeight;
     const ua = navigator.userAgent;
     const isMFirefox = (/Android/).test(ua) && (/Firefox/).test(ua);
-    if (scrollBehavior && !isMFirefox) {
+    if (!isMFirefox) {
         window.scrollBy({
             top: +`${direction}${innerHeight}`,
             behavior: 'smooth'
@@ -139,6 +131,12 @@ export const wheelEnd = debounce(() => {
     changeImg(provinceConfig);
     msCellDisplayBugFix(false);
 }, 500);
+
+export const backgroundClipText = () => {
+    const txtRainbow = document.getElementsByClassName('txt-rainbow')[0];
+    const supported = getComputedStyle(txtRainbow).backgroundClip === 'text';
+    if (!supported) txtRainbow.classList.remove('txt-rainbow');
+};
 
 export const preventDefault = e => {
     e.preventDefault();

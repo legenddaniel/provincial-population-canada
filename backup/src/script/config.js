@@ -1,6 +1,10 @@
 import { btnNational, btnProvincial, getProvinceJSONIndex, getJSONPopulation } from './utils.js';
 
-export const imgPreloadConfig = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jpg', 'img/on.jpg', 'img/pe.jpg', 'img/qc.jpg', 'img/sk.jpg'];
+export const imgPreloadConfig = (dir => {
+    const context = {};
+    dir.keys().forEach(key => context[key] = dir(key));
+    return Object.values(context);
+})(require.context('../img/', true, /\.jpg$/));
 
 export const provinceConfig = [{
     name: 'Alberta',
@@ -79,7 +83,7 @@ export const pageArrowConfig = [{
 export const ajaxConfig = {
     'national': {
         method: 'GET',
-        url: 'data.json',
+        url: '../data/data.json',
         async: true,
         fn(responseText) {
             const population = getJSONPopulation(responseText, 'national');
@@ -89,7 +93,7 @@ export const ajaxConfig = {
     },
     'provincial': {
         method: 'GET',
-        url: 'data.json',
+        url: '../data/data.json',
         async: true,
         fn(responseText) {
             const population = getJSONPopulation(responseText, 'provincial');

@@ -1,6 +1,8 @@
+@import "reset.css";
+
 /* Component ↓ */
 .btn-txt {
-    background-color: inherit;
+    background-color: transparent;
     border: none;
     outline: none;
 }
@@ -14,24 +16,31 @@
 
 .arrow-top {
     top: 5%;
-    -webkit-transform: translateX(-50%) rotate(90deg);
     transform: translateX(-50%) rotate(90deg);
 }
 .arrow-bot {
     top: 95%;
-    -webkit-transform: translate(-50%, -100%) rotate(90deg);
     transform: translate(-50%, -100%) rotate(90deg);
 }
 
+.bg-canada {
+    z-index: 1;
+}
+.bg-canada::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/ca.jpg) center no-repeat;
+    background-size: cover;
+}
+
 .section {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
-    -webkit-box-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
     align-items: center;
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
@@ -41,7 +50,6 @@
 .stage {
     position: relative;
     width: 42rem;
-    -webkit-perspective: 20rem;
     perspective: 20rem;
     overflow: hidden;
 }
@@ -50,63 +58,47 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-    -webkit-transition: -webkit-transform 0.5s;
-    transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
-    transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .cell {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-transform-origin: center;
     transform-origin: center;
     white-space: nowrap;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
 .cell:nth-of-type(1) {
-    -webkit-transform: rotateX(0deg) translateZ(5rem) scale(0.6);
     transform: rotateX(0deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(2) {
-    -webkit-transform: rotateX(-36deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-36deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(3) {
-    -webkit-transform: rotateX(-72deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-72deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(4) {
-    -webkit-transform: rotateX(-108deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-108deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(5) {
-    -webkit-transform: rotateX(-144deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-144deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(6) {
-    -webkit-transform: rotateX(-180deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-180deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(7) {
-    -webkit-transform: rotateX(-216deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-216deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(8) {
-    -webkit-transform: rotateX(-252deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-252deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(9) {
-    -webkit-transform: rotateX(-288deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-288deg) translateZ(5rem) scale(0.6);
 }
 .cell:nth-of-type(10) {
-    -webkit-transform: rotateX(-324deg) translateZ(5rem) scale(0.6);
     transform: rotateX(-324deg) translateZ(5rem) scale(0.6);
 }
 
@@ -120,19 +112,17 @@
     white-space: nowrap;
 }
 
-.date::-webkit-inner-spin-button,
-.date::-webkit-calendar-picker-indicator {
+.date::-webkit-inner-spin-button {
     display: none;
-    -webkit-appearance: none;
     appearance: none;
 }
 
 .img {
     position: absolute;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
+    top: 0;
+    left: 0;
     z-index: 2;
     width: 100%;
     height: 100%;
@@ -145,6 +135,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     width: calc(50vw - 21rem);
+}
+
+.img::after {
+    background-position: top right;
 }
 
 .img-ab::before,
@@ -197,19 +191,6 @@
     background-image: url(../img/sk.jpg);
 }
 
-.img-ab::after,
-.img-bc::after,
-.img-mn::after,
-.img-nb::after,
-.img-nl::after,
-.img-ns::after,
-.img-on::after,
-.img-pe::after,
-.img-qc::after,
-.img-sk::after {
-    background-position: top right;
-}
-
 /* Component ↑ */
 
 /* Module ↓ */
@@ -230,25 +211,19 @@
 }
 
 .flex {
-    display: -webkit-box;
     display: flex;
 }
 
 .flex-column {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
 }
 
 .justify-center {
-    -webkit-box-pack: center;
     justify-content: center;
 }
 
 .flex-center {
-    -webkit-box-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
     align-items: center;
 }
 /* Display ↑ */
@@ -298,19 +273,7 @@
 /* Size ↑ */
 
 /* Color ↓ */
-.bg-canada {
-    z-index: 1;
-}
-.bg-canada::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url(../img/ca.jpg) center no-repeat;
-    background-size: cover;
-}
+
 /* Color ↑ */
 
 /* Text ↓ */
@@ -339,17 +302,6 @@
 }
 
 .txt-rainbow {
-    background: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        from(rgba(255, 210, 125, 0.8)),
-        color-stop(rgba(255, 255, 128, 0.8)),
-        color-stop(rgba(64, 128, 64, 0.8)),
-        color-stop(rgba(128, 128, 255, 0.8)),
-        color-stop(rgba(105, 67, 133, 0.8)),
-        to(rgba(129, 63, 129, 0.8))
-    );
     background: linear-gradient(
         to right,
         rgba(255, 210, 125, 0.8),
@@ -359,7 +311,6 @@
         rgba(105, 67, 133, 0.8),
         rgba(129, 63, 129, 0.8)
     );
-    -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
@@ -481,6 +432,17 @@
     }
     .w-bg-red {
         width: 50vw;
+    }
+}
+
+@media screen and (max-height: 550px) and (orientation: landscape) {
+    .widget {
+        width: 50vh;
+    }
+    
+    .img::before,
+    .img::after {
+        width: calc(50vw - 15rem);
     }
 }
 

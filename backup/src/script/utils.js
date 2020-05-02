@@ -42,8 +42,6 @@ export const isSafari = () => {
     return safari;
 };
 
-export const scrollBehavior = 'scrollBehavior' in document.documentElement.style;
-
 export const getRotateDeg = () => {
     const rotate = carousel.style.transform || '0';
     const deg = +rotate.match(/-*\d+/)[0];
