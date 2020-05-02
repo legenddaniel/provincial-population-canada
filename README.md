@@ -22,7 +22,11 @@ On ie due to browser support the restriction on `<input type="date">` (i.e. `min
 
 Bugs:
 
-    1. On Safari unload / pagehide event not triggered.
+    1. On ie the `.css` might not be loaded at the first time, try refresh or resize it.
+
+    1. On chrome and ie the province images are not fully stretching across the viewport.
+
+    1. On Safari pagehide event not triggered.
 
     1. On Safari the address/menu bar are counted as window.innerHeight leading to a layout mess-up.
 
