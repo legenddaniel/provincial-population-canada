@@ -19,6 +19,8 @@ Due to a solution conflict, now the page will go back to top after resize, orien
 
 On Edge, Safari and mobile Firefox due to browser support no smooth scroll
 
+On ie due to browser support and no polyfill the `.txt-rainbow` is replaced by regular text
+
 Bugs:
 
     1. On Safari unload / pagehide event not triggered.

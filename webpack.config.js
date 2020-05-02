@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 
 module.exports = {
     entry: './src/script/main.js',
@@ -29,13 +30,13 @@ module.exports = {
                                 {
                                     useBuiltIns: "usage",
                                     corejs: '3.6.5',
-                                    targets: {
-                                        chrome: '62',
-                                        firefox: '57',
-                                        safari: '9',
-                                        ie: '10',
-                                        edge: '12'
-                                    }
+                                    // targets: {
+                                    //     chrome: '62',
+                                    //     firefox: '57',
+                                    //     safari: '9',
+                                    //     ie: '10',
+                                    //     edge: '12'
+                                    // }
                                 }
                             ]
                         ]
@@ -44,7 +45,18 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    { loader: 'css-loader', options: { importLoaders: 1 } },
+                    {
+                        loader: 'postcss-loader', options: {
+                            ident: 'postcss',
+                            plugins: () => [
+                                postcssPresetEnv()
+                            ]
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(png|jpe?g|gif)$/,

@@ -140,6 +140,12 @@ export const wheelEnd = debounce(() => {
     msCellDisplayBugFix(false);
 }, 500);
 
+export const backgroundClipText = () => {
+    const txtRainbow = document.getElementsByClassName('txt-rainbow')[0];
+    const supported = getComputedStyle(txtRainbow).backgroundClip === 'text';
+    if (!supported) txtRainbow.classList.remove('txt-rainbow');
+};
+
 export const preventDefault = e => {
     e.preventDefault();
 };
