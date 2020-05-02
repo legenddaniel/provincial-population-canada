@@ -17,8 +17,6 @@ Due to the layout setting, no keyboard navigation. Use pointers to reach the ele
 
 Due to a solution conflict, now the page will go back to top after resize, orientation change and refresh.
 
-On Edge, Safari and mobile Firefox due to browser support no smooth scroll
-
 On ie due to browser support and no polyfill the `.txt-rainbow` is replaced by regular text
 On ie due to browser support the restriction on `<input type="date">` not working even polyfilled
 
@@ -33,6 +31,8 @@ Bugs:
         or double tap the page to restore to normal.
 
     1. On Firefox the province images keep flickering despite preload and cache
+
+    1. On Mobile Firefox smooth scroll failed even polyfilled
 
     1. On Android the date picker indicator cannot be hidden.
 

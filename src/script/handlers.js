@@ -76,10 +76,16 @@ export const showResultProvincial = ajax.bind(null, ajaxConfig.provincial);
 export const scrollPage = e => {
     const direction = e.target === btnArrow.firstElementChild ? '-' : '+';
     const innerHeight = window.innerHeight;
-    window.scrollBy({
-        top: +`${direction}${innerHeight}`,
-        behavior: 'smooth'
-    });
+    // const ua = navigator.userAgent;
+    // const isMFirefox = (/Android/).test(ua) && (/Firefox/).test(ua);
+    // if (!isMFirefox) {
+    //     window.scrollBy({
+    //         top: +`${direction}${innerHeight}`,
+    //         behavior: 'smooth'
+    //     });
+    // } else {
+        window.scrollBy(0, +`${direction}${innerHeight}`);
+    // }
     e.currentTarget.removeEventListener('click', scrollPage);
 };
 
