@@ -945,6 +945,17 @@ eval("var anObject = __webpack_require__(/*! ../internals/an-object */ \"./node_
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/object-to-array.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/internals/object-to-array.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var DESCRIPTORS = __webpack_require__(/*! ../internals/descriptors */ \"./node_modules/core-js/internals/descriptors.js\");\nvar objectKeys = __webpack_require__(/*! ../internals/object-keys */ \"./node_modules/core-js/internals/object-keys.js\");\nvar toIndexedObject = __webpack_require__(/*! ../internals/to-indexed-object */ \"./node_modules/core-js/internals/to-indexed-object.js\");\nvar propertyIsEnumerable = __webpack_require__(/*! ../internals/object-property-is-enumerable */ \"./node_modules/core-js/internals/object-property-is-enumerable.js\").f;\n\n// `Object.{ entries, values }` methods implementation\nvar createMethod = function (TO_ENTRIES) {\n  return function (it) {\n    var O = toIndexedObject(it);\n    var keys = objectKeys(O);\n    var length = keys.length;\n    var i = 0;\n    var result = [];\n    var key;\n    while (length > i) {\n      key = keys[i++];\n      if (!DESCRIPTORS || propertyIsEnumerable.call(O, key)) {\n        result.push(TO_ENTRIES ? [key, O[key]] : O[key]);\n      }\n    }\n    return result;\n  };\n};\n\nmodule.exports = {\n  // `Object.entries` method\n  // https://tc39.github.io/ecma262/#sec-object.entries\n  entries: createMethod(true),\n  // `Object.values` method\n  // https://tc39.github.io/ecma262/#sec-object.values\n  values: createMethod(false)\n};\n\n\n//# sourceURL=webpack:///./node_modules/core-js/internals/object-to-array.js?");
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/object-to-string.js":
 /*!************************************************************!*\
   !*** ./node_modules/core-js/internals/object-to-string.js ***!
@@ -1464,6 +1475,17 @@ eval("var TO_STRING_TAG_SUPPORT = __webpack_require__(/*! ../internals/to-string
 
 /***/ }),
 
+/***/ "./node_modules/core-js/modules/es.object.values.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/modules/es.object.values.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var $ = __webpack_require__(/*! ../internals/export */ \"./node_modules/core-js/internals/export.js\");\nvar $values = __webpack_require__(/*! ../internals/object-to-array */ \"./node_modules/core-js/internals/object-to-array.js\").values;\n\n// `Object.values` method\n// https://tc39.github.io/ecma262/#sec-object.values\n$({ target: 'Object', stat: true }, {\n  values: function values(O) {\n    return $values(O);\n  }\n});\n\n\n//# sourceURL=webpack:///./node_modules/core-js/modules/es.object.values.js?");
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.promise.js":
 /*!****************************************************!*\
   !*** ./node_modules/core-js/modules/es.promise.js ***!
@@ -1648,6 +1670,138 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
+/***/ "./src/img sync recursive \\.jpg$":
+/*!*****************************!*\
+  !*** ./src/img sync \.jpg$ ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./ab.jpg\": \"./src/img/ab.jpg\",\n\t\"./bc.jpg\": \"./src/img/bc.jpg\",\n\t\"./ca.jpg\": \"./src/img/ca.jpg\",\n\t\"./mn.jpg\": \"./src/img/mn.jpg\",\n\t\"./nb.jpg\": \"./src/img/nb.jpg\",\n\t\"./nl.jpg\": \"./src/img/nl.jpg\",\n\t\"./ns.jpg\": \"./src/img/ns.jpg\",\n\t\"./on.jpg\": \"./src/img/on.jpg\",\n\t\"./pe.jpg\": \"./src/img/pe.jpg\",\n\t\"./qc.jpg\": \"./src/img/qc.jpg\",\n\t\"./sk.jpg\": \"./src/img/sk.jpg\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/img sync recursive \\\\.jpg$\";\n\n//# sourceURL=webpack:///./src/img_sync_\\.jpg$?");
+
+/***/ }),
+
+/***/ "./src/img/ab.jpg":
+/*!************************!*\
+  !*** ./src/img/ab.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/b173ec7e200f960ff9e5e54f9a653305.jpg\";\n\n//# sourceURL=webpack:///./src/img/ab.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/bc.jpg":
+/*!************************!*\
+  !*** ./src/img/bc.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/33df62feaa1871d7ff4c2b933aa82992.jpg\";\n\n//# sourceURL=webpack:///./src/img/bc.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/ca.jpg":
+/*!************************!*\
+  !*** ./src/img/ca.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/53e933231fe50d46d6bf6b0133f69d47.jpg\";\n\n//# sourceURL=webpack:///./src/img/ca.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/mn.jpg":
+/*!************************!*\
+  !*** ./src/img/mn.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/71b1abb6a445059bf43463ab80e75506.jpg\";\n\n//# sourceURL=webpack:///./src/img/mn.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/nb.jpg":
+/*!************************!*\
+  !*** ./src/img/nb.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/8aa56b4e08ef9a40c92e6e0609991280.jpg\";\n\n//# sourceURL=webpack:///./src/img/nb.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/nl.jpg":
+/*!************************!*\
+  !*** ./src/img/nl.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/183ad681c899a84c82e288ac8ad30604.jpg\";\n\n//# sourceURL=webpack:///./src/img/nl.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/ns.jpg":
+/*!************************!*\
+  !*** ./src/img/ns.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/329b774421235a3b27d7142b1707ea01.jpg\";\n\n//# sourceURL=webpack:///./src/img/ns.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/on.jpg":
+/*!************************!*\
+  !*** ./src/img/on.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/40734ae2e8255713e76814eba786f018.jpg\";\n\n//# sourceURL=webpack:///./src/img/on.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/pe.jpg":
+/*!************************!*\
+  !*** ./src/img/pe.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/8c40e3bdea0a863b76d888ad9952cf74.jpg\";\n\n//# sourceURL=webpack:///./src/img/pe.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/qc.jpg":
+/*!************************!*\
+  !*** ./src/img/qc.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/1d9c8fdb875c31cbfa1f83e11a7038af.jpg\";\n\n//# sourceURL=webpack:///./src/img/qc.jpg?");
+
+/***/ }),
+
+/***/ "./src/img/sk.jpg":
+/*!************************!*\
+  !*** ./src/img/sk.jpg ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"img/5681a01b46e89618d96ff523dc81a1fb.jpg\";\n\n//# sourceURL=webpack:///./src/img/sk.jpg?");
+
+/***/ }),
+
 /***/ "./src/script/config.js":
 /*!******************************!*\
   !*** ./src/script/config.js ***!
@@ -1656,7 +1810,7 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"imgPreloadConfig\", function() { return imgPreloadConfig; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"provinceConfig\", function() { return provinceConfig; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"pageArrowConfig\", function() { return pageArrowConfig; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ajaxConfig\", function() { return ajaxConfig; });\n/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ \"./src/script/utils.js\");\n\nvar imgPreloadConfig = ['img/bc.jpg', 'img/mn.jpg', 'img/nb.jpg', 'img/nl.jpg', 'img/ns.jpg', 'img/on.jpg', 'img/pe.jpg', 'img/qc.jpg', 'img/sk.jpg'];\nvar provinceConfig = [{\n  name: 'Alberta',\n  cellRotateDeg: [0],\n  jsonIndex: 9,\n  img: 'img-ab'\n}, {\n  name: 'British Columbia',\n  cellRotateDeg: [36, -324],\n  jsonIndex: 10,\n  img: 'img-bc'\n}, {\n  name: 'Manitoba',\n  cellRotateDeg: [72, -288],\n  jsonIndex: 12,\n  img: 'img-mn'\n}, {\n  name: 'New Brunswick',\n  cellRotateDeg: [108, -252],\n  jsonIndex: 13,\n  img: 'img-nb'\n}, {\n  name: 'Newfoundland And Labrador',\n  cellRotateDeg: [144, -216],\n  jsonIndex: 14,\n  img: 'img-nl'\n}, {\n  name: 'Nova Scotia',\n  cellRotateDeg: [180, -180],\n  jsonIndex: 15,\n  img: 'img-ns'\n}, {\n  name: 'Ontario',\n  cellRotateDeg: [216, -144],\n  jsonIndex: 16,\n  img: 'img-on'\n}, {\n  name: 'Prince Edward Island',\n  cellRotateDeg: [252, -108],\n  jsonIndex: 17,\n  img: 'img-pe'\n}, {\n  name: 'Quebec',\n  cellRotateDeg: [288, -72],\n  jsonIndex: 18,\n  img: 'img-qc'\n}, {\n  name: 'Saskatchewan',\n  cellRotateDeg: [324, -36],\n  jsonIndex: 19,\n  img: 'img-sk'\n}];\nvar pageArrowConfig = [{\n  page: 1,\n  arrowClicked: 'arrow-bot',\n  arrowHandled: 'arrow-top',\n  method: 'show'\n}, {\n  page: 2,\n  arrowClicked: 'arrow-top',\n  arrowHandled: 'arrow-top',\n  method: 'hide'\n}, {\n  page: 3,\n  arrowClicked: 'arrow-bot',\n  arrowHandled: 'arrow-bot',\n  method: 'hide'\n}, {\n  page: 4,\n  arrowClicked: 'arrow-top',\n  arrowHandled: 'arrow-bot',\n  method: 'show'\n}];\nvar ajaxConfig = {\n  'national': {\n    method: 'GET',\n    url: '../data/data.json',\n    async: true,\n    fn: function fn(responseText) {\n      var population = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__[\"getJSONPopulation\"])(responseText, 'national');\n      var result = population[11] || 'Select a date';\n      _utils_js__WEBPACK_IMPORTED_MODULE_0__[\"btnNational\"].textContent = result;\n    }\n  },\n  'provincial': {\n    method: 'GET',\n    url: '../data/data.json',\n    async: true,\n    fn: function fn(responseText) {\n      var population = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__[\"getJSONPopulation\"])(responseText, 'provincial');\n\n      var getResult = function getResult() {\n        var index = Object(_utils_js__WEBPACK_IMPORTED_MODULE_0__[\"getProvinceJSONIndex\"])(provinceConfig);\n        var populationData = population[index] || 'Select a date';\n        return populationData;\n      };\n\n      var result = getResult();\n      _utils_js__WEBPACK_IMPORTED_MODULE_0__[\"btnProvincial\"].textContent = result;\n    }\n  }\n};\n\n//# sourceURL=webpack:///./src/script/config.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"imgPreloadConfig\", function() { return imgPreloadConfig; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"provinceConfig\", function() { return provinceConfig; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"pageArrowConfig\", function() { return pageArrowConfig; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"ajaxConfig\", function() { return ajaxConfig; });\n/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ \"./node_modules/core-js/modules/es.array.for-each.js\");\n/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.iterator */ \"./node_modules/core-js/modules/es.array.iterator.js\");\n/* harmony import */ var core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.object.to-string */ \"./node_modules/core-js/modules/es.object.to-string.js\");\n/* harmony import */ var core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var core_js_modules_es_object_values__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.object.values */ \"./node_modules/core-js/modules/es.object.values.js\");\n/* harmony import */ var core_js_modules_es_object_values__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_values__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ \"./node_modules/core-js/modules/web.dom-collections.for-each.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator */ \"./node_modules/core-js/modules/web.dom-collections.iterator.js\");\n/* harmony import */ var core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils.js */ \"./src/script/utils.js\");\n\n\n\n\n\n\n\nvar imgPreloadConfig = function (dir) {\n  var context = {};\n  dir.keys().forEach(function (key) {\n    return context[key] = dir(key);\n  });\n  return Object.values(context);\n}(__webpack_require__(\"./src/img sync recursive \\\\.jpg$\"));\nvar provinceConfig = [{\n  name: 'Alberta',\n  cellRotateDeg: [0],\n  jsonIndex: 9,\n  img: 'img-ab'\n}, {\n  name: 'British Columbia',\n  cellRotateDeg: [36, -324],\n  jsonIndex: 10,\n  img: 'img-bc'\n}, {\n  name: 'Manitoba',\n  cellRotateDeg: [72, -288],\n  jsonIndex: 12,\n  img: 'img-mn'\n}, {\n  name: 'New Brunswick',\n  cellRotateDeg: [108, -252],\n  jsonIndex: 13,\n  img: 'img-nb'\n}, {\n  name: 'Newfoundland And Labrador',\n  cellRotateDeg: [144, -216],\n  jsonIndex: 14,\n  img: 'img-nl'\n}, {\n  name: 'Nova Scotia',\n  cellRotateDeg: [180, -180],\n  jsonIndex: 15,\n  img: 'img-ns'\n}, {\n  name: 'Ontario',\n  cellRotateDeg: [216, -144],\n  jsonIndex: 16,\n  img: 'img-on'\n}, {\n  name: 'Prince Edward Island',\n  cellRotateDeg: [252, -108],\n  jsonIndex: 17,\n  img: 'img-pe'\n}, {\n  name: 'Quebec',\n  cellRotateDeg: [288, -72],\n  jsonIndex: 18,\n  img: 'img-qc'\n}, {\n  name: 'Saskatchewan',\n  cellRotateDeg: [324, -36],\n  jsonIndex: 19,\n  img: 'img-sk'\n}];\nvar pageArrowConfig = [{\n  page: 1,\n  arrowClicked: 'arrow-bot',\n  arrowHandled: 'arrow-top',\n  method: 'show'\n}, {\n  page: 2,\n  arrowClicked: 'arrow-top',\n  arrowHandled: 'arrow-top',\n  method: 'hide'\n}, {\n  page: 3,\n  arrowClicked: 'arrow-bot',\n  arrowHandled: 'arrow-bot',\n  method: 'hide'\n}, {\n  page: 4,\n  arrowClicked: 'arrow-top',\n  arrowHandled: 'arrow-bot',\n  method: 'show'\n}];\nvar ajaxConfig = {\n  'national': {\n    method: 'GET',\n    url: '../data/data.json',\n    async: true,\n    fn: function fn(responseText) {\n      var population = Object(_utils_js__WEBPACK_IMPORTED_MODULE_6__[\"getJSONPopulation\"])(responseText, 'national');\n      var result = population[11] || 'Select a date';\n      _utils_js__WEBPACK_IMPORTED_MODULE_6__[\"btnNational\"].textContent = result;\n    }\n  },\n  'provincial': {\n    method: 'GET',\n    url: '../data/data.json',\n    async: true,\n    fn: function fn(responseText) {\n      var population = Object(_utils_js__WEBPACK_IMPORTED_MODULE_6__[\"getJSONPopulation\"])(responseText, 'provincial');\n\n      var getResult = function getResult() {\n        var index = Object(_utils_js__WEBPACK_IMPORTED_MODULE_6__[\"getProvinceJSONIndex\"])(provinceConfig);\n        var populationData = population[index] || 'Select a date';\n        return populationData;\n      };\n\n      var result = getResult();\n      _utils_js__WEBPACK_IMPORTED_MODULE_6__[\"btnProvincial\"].textContent = result;\n    }\n  }\n};\n\n//# sourceURL=webpack:///./src/script/config.js?");
 
 /***/ }),
 
