@@ -30,13 +30,6 @@ module.exports = {
                                 {
                                     useBuiltIns: "usage",
                                     corejs: '3.6.5',
-                                    // targets: {
-                                    //     chrome: '62',
-                                    //     firefox: '57',
-                                    //     safari: '9',
-                                    //     ie: '10',
-                                    //     edge: '12'
-                                    // }
                                 }
                             ]
                         ]

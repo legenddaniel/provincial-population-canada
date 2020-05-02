@@ -18,7 +18,7 @@ Due to the layout setting, no keyboard navigation. Use pointers to reach the ele
 Due to a solution conflict, now the page will go back to top after resize, orientation change and refresh.
 
 On ie due to browser support and no polyfill the `.txt-rainbow` is replaced by regular text
-On ie due to browser support the restriction on `<input type="date">` not working even polyfilled
+On ie due to browser support the restriction on `<input type="date">` (i.e. `min` and `max` attributes) not working even polyfilled
 
 Bugs:
 
@@ -34,10 +34,6 @@ Bugs:
 
     1. On Mobile Firefox smooth scroll failed even polyfilled
 
-    1. On Android the date picker indicator cannot be hidden.
-
     1. On Edge the slot machine widget (province selector) might have a flicker due to unknown reason. Partially fixed by a forced repaint when rolling the widget to make it look better.
-
-Unusual module import/export issue, might be a TDZ issue. Not leading to a bad implementation but can be optimized more.
 
 <img src="qr-page.png">

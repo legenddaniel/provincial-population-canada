@@ -1,6 +1,3 @@
-// e.deltaY ios
-// hover: none pointer: coarse ios9-
-
 import { pageArrowConfig, ajaxConfig, provinceConfig } from './config.js';
 import { carousel, btnArrow, debounce, ajax, isSafari, getRotateDeg, toggleArrows, changeImg } from './utils.js';
 
