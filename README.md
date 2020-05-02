@@ -40,4 +40,4 @@ Bugs:
 
 Unusual module import/export issue, might be a TDZ issue. Not leading to a bad implementation but can be optimized more.
 
-<img src="img/qr-page.png">
+<img src="qr-page.png">
