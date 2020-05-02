@@ -5,7 +5,7 @@ The provincial statistics starts from 1951-07-01.
 
 Bootstrap-style OOCSS
 
-3D Transform
+Since ie does not support `transform-style: preserved-3d` in any way and the function of provincial population getter is based on the rotate degree of the 3d carousel, it is not recommended to visit this page by ie. A possible fallback is to use traditional `<select>` and `<option>` html tags on ie but that is too much extra work on it and totally destroying the aethetics.
 
 `<input type="month">` bad browser support
 
