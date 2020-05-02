@@ -1,9 +1,5 @@
 @import "reset.css";
 
-/* imput type=date
-没变成滚筒 */
-
-
 /* Component ↓ */
 .btn-txt {
     background-color: transparent;
@@ -102,8 +98,7 @@
     white-space: nowrap;
 }
 
-.date::-webkit-inner-spin-button,
-.date::-webkit-calendar-picker-indicator {
+.date::-webkit-inner-spin-button {
     display: none;
     appearance: none;
 }

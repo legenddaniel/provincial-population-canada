@@ -20,6 +20,7 @@ Due to a solution conflict, now the page will go back to top after resize, orien
 On Edge, Safari and mobile Firefox due to browser support no smooth scroll
 
 On ie due to browser support and no polyfill the `.txt-rainbow` is replaced by regular text
+On ie due to browser support the restriction on `<input type="date">` not working even polyfilled
 
 Bugs:
 
