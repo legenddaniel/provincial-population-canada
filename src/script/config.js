@@ -1,9 +1,11 @@
 import { btnNational, btnProvincial, getProvinceJSONIndex, getJSONPopulation } from './utils.js';
 
-export const imgPreloadConfig = (dir => {
-    const context = {};
-    dir.keys().forEach(key => context[key] = dir(key));
-    return Object.values(context);
+export const imgPreloadConfig = (request => {
+    const context = [];
+    request.keys().forEach(key => {
+        if (key !== './ca.jpg' && key !== './ab.jpg') context.push(request(key));
+    });
+    return context;
 })(require.context('../img/', true, /\.jpg$/));
 
 export const provinceConfig = [{

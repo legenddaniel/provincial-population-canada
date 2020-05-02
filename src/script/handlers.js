@@ -23,6 +23,12 @@ export const preloadImg = (...urls) => {
     getImgs(urls).then(() => {
         document.body.appendChild(toolDiv);
     });
+    // urls.forEach(url => {
+    //     const img = new Image();
+    //     img.src = url;
+    //     toolDiv.appendChild(img);
+    // });
+    // document.body.appendChild(toolDiv);
 };
 
 export const setSectionHeight = debounce(() => {

@@ -10,7 +10,7 @@ export const on = function (currentTarget, type, handler) {
 
 export const ajax = option => {
     return new Promise(res => {
-        const xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");
+        const xhr = new XMLHttpRequest();
         xhr.open(option.method, option.url, option.async);
         xhr.send();
         xhr.onload = function () {
