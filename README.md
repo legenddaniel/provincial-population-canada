@@ -1,6 +1,6 @@
 # Provincial Population Data
 
-This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice <strong>vanilla javascript APIs</strong>, <strong>asynchronous programming</strong> and <strong>front-end engineering (modules, task runner, bundler)</strong>. In this application the style was written by css instead of scss or css lib. 
+This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice <strong>vanilla javascript APIs</strong>, <strong>asynchronous programming</strong> and <strong>front-end engineering (modules, task runner, bundler)</strong>. In this application the style was written by css instead of scss or css lib, in a Bootstrap-style OOCSS. 
 
 On the provincial population section (the last page), use mousewheel to switch provinces.
 
