@@ -6,8 +6,8 @@ export const preloadImg = (...urls) => {
     toolDiv.className = 'd-none';
     toolDiv.setAttribute('title', '<div> for async img preload as rel=preload && data attribute not working well');
 
-    if( !HTMLImageElement.prototype.decode ) definePropertyDecode();
-    
+    if (!HTMLImageElement.prototype.decode) definePropertyDecode();
+
     const load = url => {
         return new Promise(res => {
             const img = new Image();
@@ -27,12 +27,6 @@ export const preloadImg = (...urls) => {
     getImgs(urls).then(() => {
         document.body.appendChild(toolDiv);
     });
-    // urls.forEach(url => {
-    //     const img = new Image();
-    //     img.src = url;
-    //     toolDiv.appendChild(img);
-    // });
-    // document.body.appendChild(toolDiv);
 };
 
 export const setSectionHeight = debounce(() => {

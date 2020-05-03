@@ -22,20 +22,22 @@ On ie due to browser support the restriction on `<input type="date">` (i.e. `min
 
 Bugs:
 
-    1. On ie the style might not be loaded at the first time, try refresh or resize it.
+1. On ie the style might not be loaded at the first time, try resize it.
 
-    1. On chrome and ie the province images are not fully stretching across the viewport.
+1. On chrome and ie the province images are not fully stretching across the viewport.
 
-    1. On Safari pagehide event not triggered.
+1. On IOS Safari pagehide event not triggered.
 
-    1. On Safari the address/menu bar are counted as window.innerHeight leading to a layout mess-up.
+1. On IOS Safari the address/menu bar are counted as window.innerHeight leading to a layout mess-up.
 
-    1. On Safari when changing orientation the layout might be messed up,
+1. On IOS Safari when changing orientation the layout might be messed up,
         try refreshing and then use full screen or portrait mode,
         or double tap the page to restore to normal.
 
-    1. On Mobile Firefox smooth scroll failed even polyfilled
+1. On Mobile Firefox smooth scroll failed even polyfilled
+    
+1. On Mobile Firefox the province images keep flickering despite preload, decode and cache
 
-    1. On Edge the slot machine widget (province selector) might have a flicker due to unknown reason. Partially fixed by a forced repaint when rolling the widget to make it look better.
+1. On Edge the slot machine widget (province selector) might have a flicker. Partially fixed by a forced repaint when rolling the widget to make it look better.
 
 <img src="qr-page.png">
