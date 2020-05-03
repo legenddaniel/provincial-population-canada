@@ -36,6 +36,18 @@ export const debounce = (fn, delay, immediate) => {
     };
 };
 
+export const definePropertyDecode = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = canvas.height = 1;
+    const ctx = canvas.getContext('2d');
+    HTMLImageElement.prototype.decode = function () {
+        return new Promise(res => {
+            ctx.drawImage(this, 0, 0);
+            res();
+        });
+    };
+};
+
 export const isSafari = () => {
     const ua = navigator.userAgent;
     const safari = (/Mac|iPhone|iPad/).test(ua);

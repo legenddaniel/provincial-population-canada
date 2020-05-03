@@ -22,7 +22,7 @@ On ie due to browser support the restriction on `<input type="date">` (i.e. `min
 
 Bugs:
 
-    1. On ie the `.css` might not be loaded at the first time, try refresh or resize it.
+    1. On ie the style might not be loaded at the first time, try refresh or resize it.
 
     1. On chrome and ie the province images are not fully stretching across the viewport.
 
@@ -33,8 +33,6 @@ Bugs:
     1. On Safari when changing orientation the layout might be messed up,
         try refreshing and then use full screen or portrait mode,
         or double tap the page to restore to normal.
-
-    1. On Firefox, ie and Edge the province images keep flickering despite preload and cache
 
     1. On Mobile Firefox smooth scroll failed even polyfilled
 

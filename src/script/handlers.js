@@ -1,16 +1,20 @@
 import { pageArrowConfig, ajaxConfig, provinceConfig } from './config.js';
-import { carousel, btnArrow, debounce, ajax, isSafari, getRotateDeg, toggleArrows, changeImg } from './utils.js';
+import { carousel, btnArrow, debounce, ajax, definePropertyDecode, isSafari, getRotateDeg, toggleArrows, changeImg } from './utils.js';
 
 export const preloadImg = (...urls) => {
     const toolDiv = document.createElement('div');
     toolDiv.className = 'd-none';
     toolDiv.setAttribute('title', '<div> for async img preload as rel=preload && data attribute not working well');
 
+    if( !HTMLImageElement.prototype.decode ) definePropertyDecode();
+    
     const load = url => {
         return new Promise(res => {
             const img = new Image();
             img.src = url;
-            img.onload = () => res(img);
+            img.onload = () => {
+                img.decode().then(() => res(img));
+            };
         });
     };
     const getImgs = imgs => {
