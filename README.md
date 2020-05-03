@@ -34,7 +34,7 @@ Bugs:
         try refreshing and then use full screen or portrait mode,
         or double tap the page to restore to normal.
 
-    1. On Firefox the province images keep flickering despite preload and cache
+    1. On Firefox, ie and Edge the province images keep flickering despite preload and cache
 
     1. On Mobile Firefox smooth scroll failed even polyfilled
 
