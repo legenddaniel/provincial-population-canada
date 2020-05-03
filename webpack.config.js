@@ -1,8 +1,9 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/script/main.js',
@@ -11,6 +12,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
