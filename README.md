@@ -2,35 +2,35 @@
 
 See the demo on [Github Pages](https://legenddaniel.github.io/provincial-population-canada/)
 
-This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice <strong>vanilla javascript APIs</strong>, <strong>asynchronous programming</strong> and <strong>front-end engineering (modules, task runner, bundler)</strong>. In this application the style was written by css instead of scss or css lib, in a Bootstrap-style OOCSS. 
+This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice <strong>vanilla javascript APIs</strong>, <strong>asynchronous programming</strong> and to exercise <strong>front-end engineering (configurization, modularization, normalization and automation)</strong>. In this application the styles are written by css instead of scss or css lib, in a Bootstrap-style OOCSS. This application is adaptive for various devices and display orientations.
 
-On the provincial population section (the last page), use mousewheel to switch provinces.
+On the provincial population section (the last page), use mousewheel/touchmove to switch provinces.
 
 ---
 
 Tested browsers (lowest versions, stars for experience):
 
-Chrome 80, ☆☆☆☆☆
+- Chrome 80, ☆☆☆☆☆
 
-Firefox 75, ☆☆☆☆☆
+- Firefox 75, ☆☆☆☆☆
 
-Opera 68, ☆☆☆☆☆
+- Opera 68, ☆☆☆☆☆
 
-Edge 18, ☆☆☆
+- Edge 18, ☆☆☆
 
-~~IE 11~~ ☆
+- ~~IE 11~~ ☆
 
-Android Chrome 62, ☆☆☆☆☆
+- Android Chrome 62, ☆☆☆☆☆
 
-Android Firefox 68, ☆☆☆
+- Android Firefox 68, ☆☆☆
 
-IOS Safari 13 ☆☆☆
+- IOS Safari 13 ☆☆☆
 
 ---
 
 <blockquote>
 
-Since IE does not support `transform-style: preserved-3d` in any way and the function of provincial population getter is based on the rotate degree of the 3d carousel, it is not recommended to visit this page by IE. A possible fallback is to use traditional `<select>` and `<option>` html tags on IE but that is too much extra work on it and totally destroying the aethetics.
+Since IEs do not support `transform-style: preserve-3d` in any way and the function of provincial population getter is based on the rotate degree of the 3d carousel, it is not recommended to visit this page by IE. A possible fallback is to use traditional `<select>` and `<option>` html tags on IE but that is too much extra work on it and totally destroying the aethetics.
 
 Due to the layout setting, no keyboard navigation. Use pointers to reach the elements.
 
@@ -56,11 +56,11 @@ Bugs:
 
 - On IOS Safari when changing orientation the layout might be messed up, try refreshing and then use full screen or portrait mode, or double tap the page to restore to normal.
 
-- On Mobile Firefox smooth scroll failed even polyfilled.
+- On Mobile Firefox smooth scroll failed even polyfilled, replaced by regular scroll without animation.
     
 - On Mobile Firefox the province images keep flickering despite preload, decode and cache.
 
-- On Edge the slot machine widget (province selector) might have a flicker. Partially fixed by a forced repaint when rolling the widget to make it look better.
+- On Edge the slot machine widget (province selector) might have a flicker. Partially fixed by a forced repainting when rolling the widget to make it look better.
 
 
 <figure>
