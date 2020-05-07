@@ -2,13 +2,13 @@
 
 See the demo on [Github Pages](https://legenddaniel.github.io/provincial-population-canada/)
 
-This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice <strong>vanilla javascript APIs</strong>, <strong>asynchronous programming</strong> and to exercise <strong>front-end engineering (configurization, modularization, normalization and automation)</strong>. In this application the styles are written by css instead of scss or css lib, in a Bootstrap-style OOCSS. This application is adaptive for various devices and display orientations.
+This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice <strong>vanilla Javascript APIs</strong>, <strong>asynchronous programming</strong> and to exercise <strong>front-end engineering (configurization, modularization, normalization and automation)</strong>. In this application the styles are written by CSS instead of SCSS or CSS lib, in a Bootstrap-style OOCSS. This application is adaptive for various devices and display orientations.
 
 On the provincial population section (the last page), use mousewheel/touchmove to switch provinces.
 
 ---
 
-Tested browsers (lowest versions, stars for experience):
+## Tested browsers (lowest versions, stars for experience):
 
 - Chrome 80, ☆☆☆☆☆
 
@@ -44,7 +44,7 @@ On IE due to browser support the restriction on `<input type="date">` (i.e. `min
 
 ---
 
-Bugs:
+## Bugs:
 
 - On IE the style might not be loaded at the first time, try resize it.
 
