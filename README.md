@@ -2,6 +2,13 @@
 
 See the demo on [Github Pages](https://legenddaniel.github.io/provincial-population-canada/)
 
+<figure>
+    <img src="qr-page.png" alt="QR-code for mobile visit">
+    <figcaption>Or scan the QR code to visit the Github page on phone</figcaption>
+</figure>
+
+<hr>
+
 This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice <strong>vanilla Javascript APIs</strong>, <strong>asynchronous programming</strong> and to exercise <strong>front-end engineering (configurization, modularization, normalization and automation)</strong>. In this application the styles are written by CSS instead of SCSS or CSS lib, in a Bootstrap-style OOCSS. This application is adaptive for various devices and display orientations.
 
 On the provincial population section (the last page), use mousewheel/touchmove to switch provinces.
@@ -61,9 +68,3 @@ On IE due to browser support the restriction on `<input type="date">` (i.e. `min
 - On Mobile Firefox the province images keep flickering despite preload, decode and cache.
 
 - On Edge the slot machine widget (province selector) might have a flicker. Partially fixed by a forced repainting when rolling the widget to make it look better.
-
-
-<figure>
-    <img src="qr-page.png" alt="QR-code for mobile visit">
-    <figcaption>Scan the QR code to visit the Github page on phone</figcaption>
-</figure>
