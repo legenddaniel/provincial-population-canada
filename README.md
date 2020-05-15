@@ -9,7 +9,7 @@ See the demo on [Github Pages](https://legenddaniel.github.io/provincial-populat
 
 <hr>
 
-This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice __vanilla Javascript APIs__, __asynchronous programming__ and to exercise __front-end engineering (configurization, modularization, normalization and automation)__. In this application the styles are written by CSS instead of SCSS or CSS lib, in a Bootstrap-style OOCSS. This application is adaptive for various devices and display orientations.
+This application provides the statistics of population of Canada from 1946 to 2015. Both national and provincial population data are included. The purpose of this project is to practice __vanilla Javascript APIs__, __asynchronous programming__ and to exercise __engineered web development (configurization, modularization, normalization and automation)__. In this application the styles are written by CSS instead of SCSS or CSS lib, in a Bootstrap-style OOCSS. This application is adaptive for various devices and display orientations.
 
 On the provincial population section (the last page), use mousewheel/touchmove to switch provinces. The population data was taken on the 1st of Jan, Apr, Jul and Oct each year, which means the population data on 2000-01-01 is exactly the same as on 2000-03-31. The data in `.json` are __not__ fetched or parsed by database APIs.
 
